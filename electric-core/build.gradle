@@ -1,10 +1,14 @@
-apply plugin: 'java'
 
 plugins {
     id 'net.ltgt.apt' version '0.10'
 }
 
+apply plugin: 'java'
+
+
 dependencies {
+
+    compile 'org.srplib:srp-contract:0.8.3'
 
     compileOnly 'org.projectlombok:lombok:1.16.20'
 

@@ -8,6 +8,8 @@ import com.anton.electric.model.Component;
 import com.anton.electric.model.Connector;
 import com.anton.electric.model.Link;
 import com.anton.electric.model.Wire;
+import com.anton.electric.model.impl.Input380;
+import com.anton.electric.model.impl.InputSwitch;
 
 /**
  * @author Q-APE
@@ -16,7 +18,11 @@ public class ModelTest {
 
     @Test
     public void name() throws Exception {
-        Component root = null;
+        Input380 input380 = new Input380("input", "Ввод", 0);
+
+        InputSwitch inputSwitch = new InputSwitch("inputSwitch", "Вводной автомат", 0);
+
+        input380.getOutputL1().connect(inputSwitch.getInputL1());
 
         Connector connector = null;
         Set<Link> links = connector.links();

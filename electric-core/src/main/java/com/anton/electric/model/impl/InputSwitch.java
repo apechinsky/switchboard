@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-
 import static java.util.Arrays.asList;
 
 import com.anton.electric.model.AbstractComponent;
@@ -14,11 +13,11 @@ import com.anton.electric.model.Input;
 import com.anton.electric.model.Output;
 
 /**
- * Ввод 380В
+ * Вводной автомат
  *
  * @author Q-APE
  */
-public class Input380 extends AbstractComponent {
+public class InputSwitch extends AbstractComponent {
 
     private Input inputL1;
 
@@ -36,7 +35,7 @@ public class Input380 extends AbstractComponent {
 
     private Output outputN;
 
-    public Input380(String id, String name, double price) {
+    public InputSwitch(String id, String name, double price) {
         super(id, name, BigDecimal.valueOf(price));
 
         this.inputL1 = new Input(this, ConnectorType.L);
