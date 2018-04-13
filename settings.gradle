@@ -1,0 +1,4 @@
+rootProject.name = 'electric'
+
+include 'electric-core'
+include 'electric-dsl'

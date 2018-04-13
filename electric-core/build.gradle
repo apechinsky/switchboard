@@ -1,0 +1,14 @@
+apply plugin: 'java'
+
+plugins {
+    id 'net.ltgt.apt' version '0.10'
+}
+
+dependencies {
+
+    compileOnly 'org.projectlombok:lombok:1.16.20'
+
+    apt "org.projectlombok:lombok:1.16.20"
+
+    testCompile 'junit:junit:4.12'
+}
