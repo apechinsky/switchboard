@@ -11,6 +11,7 @@ import com.anton.electric.model.Connector;
 import com.anton.electric.model.ConnectorType;
 import com.anton.electric.model.Input;
 import com.anton.electric.model.Output;
+import com.google.common.collect.Sets;
 
 /**
  * Вводной автомат
@@ -46,7 +47,7 @@ public class InputSwitch extends AbstractComponent {
         this.outputL1 = new Output(this, ConnectorType.L);
         this.outputL2 = new Output(this, ConnectorType.L);
         this.outputL3 = new Output(this, ConnectorType.L);
-        this.outputN = new Output(this, ConnectorType.L);
+        this.outputN = new Output(this, ConnectorType.N);
     }
 
     public Input getInputL1() {
@@ -83,12 +84,12 @@ public class InputSwitch extends AbstractComponent {
 
     @Override
     public Set<Connector> inputs() {
-        return Collections.unmodifiableSet(new HashSet<>(asList(inputL1, inputL2, inputL3, inputN)));
+        return Sets.newHashSet(inputL1, inputL2, inputL3, inputN);
     }
 
     @Override
     public Set<Connector> outputs() {
-        return Collections.unmodifiableSet(new HashSet<>(asList(outputL1, outputL2, outputL3, outputN)));
+        return Sets.newHashSet(outputL1, outputL2, outputL3, outputN);
     }
 
 

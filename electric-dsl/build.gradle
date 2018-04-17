@@ -2,5 +2,7 @@ apply plugin: 'groovy'
 apply plugin: 'java'
 
 dependencies {
+    compile project(':electric-core')
+
     compile 'org.codehaus.groovy:groovy-all:2.3.11'
 }
