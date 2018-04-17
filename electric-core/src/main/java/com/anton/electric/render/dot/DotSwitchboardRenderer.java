@@ -18,6 +18,8 @@ import org.srplib.contract.Assert;
 import com.anton.electric.model.Component;
 import com.anton.electric.model.Link;
 import com.anton.electric.model.Switchboard;
+import com.anton.electric.model.impl.Ground;
+import com.anton.electric.model.impl.NullBus;
 import com.anton.electric.render.IndentWriter;
 
 /**
@@ -28,6 +30,8 @@ public class DotSwitchboardRenderer {
     private static final Map<Class, Renderer> RENDERERS = new LinkedHashMap<>();
 
     static {
+        RENDERERS.put(Ground.class, new GroundRenderer());
+        RENDERERS.put(NullBus.class, new NullBusRenderer());
         RENDERERS.put(Component.class, new ComponentRenderer());
         RENDERERS.put(Link.class, new LinkRenderer());
     }

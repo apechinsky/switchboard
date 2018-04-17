@@ -15,13 +15,13 @@ import com.google.common.collect.Sets;
  *
  * @author Q-APE
  */
-public class Null extends AbstractComponent {
+public class NullBus extends AbstractComponent {
 
     private Input inputN;
 
     private Output outputN;
 
-    public Null() {
+    public NullBus() {
         super("null", "Нулевая шина", 0);
 
         inputN = new Input(this, ConnectorType.N);

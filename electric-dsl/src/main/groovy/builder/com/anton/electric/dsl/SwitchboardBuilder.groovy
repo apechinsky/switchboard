@@ -4,7 +4,7 @@ import builder.com.anton.electric.dsl.support.ObjectRegistry
 import com.anton.electric.model.Component
 import com.anton.electric.model.Switchboard
 import com.anton.electric.model.impl.Ground
-import com.anton.electric.model.impl.Null
+import com.anton.electric.model.impl.NullBus
 
 /**
  *
@@ -19,11 +19,11 @@ class SwitchboardBuilder {
 
     private Ground groundBus
 
-    private Null nullBus
+    private NullBus nullBus
 
     SwitchboardBuilder() {
         this.groundBus = new Ground()
-        this.nullBus = new Null()
+        this.nullBus = new NullBus()
     }
 
     Switchboard switchboard() {
@@ -39,7 +39,7 @@ class SwitchboardBuilder {
         return groundBus
     }
 
-    Null nullBus() {
+    NullBus nullBus() {
         return nullBus
     }
 
