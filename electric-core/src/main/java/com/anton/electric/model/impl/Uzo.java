@@ -1,6 +1,5 @@
 package com.anton.electric.model.impl;
 
-import java.math.BigDecimal;
 import java.util.Set;
 
 import com.anton.electric.model.AbstractComponent;
@@ -26,7 +25,7 @@ public class Uzo extends AbstractComponent {
     private Output outputN;
 
     public Uzo(String id, String name, double price) {
-        super(id, name, BigDecimal.valueOf(price));
+        super(id, name, price);
 
         this.inputL = new Input(this, ConnectorType.L);
         this.inputN = new Input(this, ConnectorType.N);

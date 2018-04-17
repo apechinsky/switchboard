@@ -27,7 +27,7 @@ class SwitchboardBuilder {
     }
 
     Switchboard switchboard() {
-        return new Switchboard(root)
+        return new Switchboard(root, groundBus)
     }
 
     Component root(Component root) {

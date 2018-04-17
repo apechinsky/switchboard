@@ -37,7 +37,7 @@ public class InputSwitch extends AbstractComponent {
     private Output outputN;
 
     public InputSwitch(String id, String name, double price) {
-        super(id, name, BigDecimal.valueOf(price));
+        super(id, name, price);
 
         this.inputL1 = new Input(this, ConnectorType.L);
         this.inputL2 = new Input(this, ConnectorType.L);

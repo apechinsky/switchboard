@@ -1,5 +1,7 @@
 package com.anton.electric.model.impl;
 
+import java.util.Objects;
+
 import org.srplib.contract.Assert;
 
 import com.anton.electric.model.Connector;
@@ -44,5 +46,22 @@ public class LinkImpl implements Link {
     @Override
     public Connector second() {
         return second;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        LinkImpl link = (LinkImpl) o;
+        return Objects.equals(first, link.first) && Objects.equals(second, link.second);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(first, second);
     }
 }

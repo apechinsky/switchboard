@@ -11,6 +11,8 @@ import com.anton.electric.model.Output;
 import com.google.common.collect.Sets;
 
 /**
+ * Нулевая шина.
+ *
  * @author Q-APE
  */
 public class Null extends AbstractComponent {
@@ -20,7 +22,7 @@ public class Null extends AbstractComponent {
     private Output outputN;
 
     public Null() {
-        super("null", "Null", ZERO);
+        super("null", "Нулевая шина", 0);
 
         inputN = new Input(this, ConnectorType.N);
         outputN = new Output(this, ConnectorType.N);
@@ -43,4 +45,5 @@ public class Null extends AbstractComponent {
     public Set<Connector> outputs() {
         return Sets.newHashSet(outputN);
     }
+
 }

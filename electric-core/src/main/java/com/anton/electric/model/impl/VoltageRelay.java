@@ -29,7 +29,7 @@ public class VoltageRelay extends AbstractComponent {
     private Output outputN;
 
     public VoltageRelay(String id, String name, double price) {
-        super(id, name, BigDecimal.valueOf(price));
+        super(id, name, price);
 
         this.inputL = new Input(this, ConnectorType.L);
         this.inputN = new Input(this, ConnectorType.N);

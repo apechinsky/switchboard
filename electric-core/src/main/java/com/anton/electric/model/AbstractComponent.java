@@ -15,9 +15,9 @@ public abstract class AbstractComponent implements Component {
 
     private String name;
 
-    private BigDecimal price;
+    private double price;
 
-    public AbstractComponent(String id, String name, BigDecimal price) {
+    public AbstractComponent(String id, String name, double price) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -34,7 +34,7 @@ public abstract class AbstractComponent implements Component {
     }
 
     @Override
-    public BigDecimal price() {
+    public double price() {
         return price;
     }
 

@@ -20,7 +20,7 @@ public class Ground extends AbstractComponent {
     private Output outputG;
 
     public Ground() {
-        super("ground", "Ground", ZERO);
+        super("ground", "Земля", 0);
 
         outputG = new Output(this, ConnectorType.G);
     }

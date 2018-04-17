@@ -22,7 +22,7 @@ public class Switch extends AbstractComponent {
     private Output outputL;
 
     public Switch(String id, String name, double price) {
-        super(id, name, BigDecimal.valueOf(price));
+        super(id, name, price);
 
         this.inputL = new Input(this, ConnectorType.L);
 

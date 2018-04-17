@@ -37,4 +37,5 @@ public interface Link {
     static Link create(Wire wire, Connector first, Connector second) {
         return new LinkImpl(wire, first, second);
     }
+
 }

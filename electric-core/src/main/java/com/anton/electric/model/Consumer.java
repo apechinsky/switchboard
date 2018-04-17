@@ -1,6 +1,5 @@
 package com.anton.electric.model;
 
-import java.math.BigDecimal;
 import java.util.Set;
 import static java.util.Collections.emptySet;
 
@@ -17,7 +16,7 @@ public class Consumer extends AbstractComponent {
 
     private Input inputG;
 
-    public Consumer(String id, String name, BigDecimal price) {
+    public Consumer(String id, String name, double price) {
         super(id, name, price);
 
         inputL = new Input(this, ConnectorType.L);

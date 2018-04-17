@@ -21,7 +21,7 @@ public interface Component {
 
     String name();
 
-    BigDecimal price();
+    double price();
 
     /**
      * Входы компонента.
