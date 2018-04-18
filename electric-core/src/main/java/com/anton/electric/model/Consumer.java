@@ -6,6 +6,15 @@ import static java.util.Collections.emptySet;
 import com.google.common.collect.Sets;
 
 /**
+ * Стандартный потребитель (фаза, ноль, заземление)
+ *
+ * <ul>
+ *     <li>розетка</li>
+ *     <li>стиральная машина</li>
+ *     <li>посудомоечная машина</li>
+ *     <li>плита</li>
+ * </ul>
+ *
  * @author Q-APE
  */
 public class Consumer extends AbstractComponent {

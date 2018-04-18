@@ -70,14 +70,9 @@ switchboard {
     inputSwitch.outputL3.connect(voltageRelay3.inputL)
     inputSwitch.outputN.connect(voltageRelay3.inputN)
 
-    voltageRelay1.outputL.connect(uzo1.inputL)
-    voltageRelay1.outputN.connect(uzo1.inputN)
-
-    voltageRelay2.outputL.connect(uzo2.inputL)
-    voltageRelay2.outputN.connect(uzo2.inputN)
-
-    voltageRelay3.outputL.connect(uzo3.inputL)
-    voltageRelay3.outputN.connect(uzo3.inputN)
+    voltageRelay1.connect(uzo1)
+    voltageRelay2.connect(uzo1)
+    voltageRelay2.connect(uzo1)
 
 
     uzo1.outputN.connect(nullBus.inputN)
@@ -99,59 +94,20 @@ switchboard {
     uzo3.outputL.connect(switchLivingLight.inputL)
     uzo3.outputL.connect(switchLivingSocket.inputL)
 
+    outputSocket(switchKitchenLight.outputL).connect(kitchenLight)
+    outputSocket(switchKitchenSocket.outputL).connect(kitchenSocket)
+    outputSocket(switchKitchenCooker.outputL).connect(kitchenCooker)
+    outputSocket(switchKitchenFridge.outputL).connect(kitchenFridge)
+    outputSocket(switchKitchenDishWasher.outputL).connect(kitchenDishWasher)
 
-    switchKitchenLight.outputL.connect(kitchenLight.inputL)
-    nullBus.outputN.connect(kitchenLight.inputN)
-    groundBus.outputG.connect(kitchenLight.inputG)
+    outputSocket(switchBed1Light.outputL).connect(bed1Light)
+    outputSocket(switchBed1Socket.outputL).connect(bed1Socket)
+    outputSocket(switchBed2Light.outputL).connect(bed2Light)
+    outputSocket(switchBed2Socket.outputL).connect(bed2Socket)
+    outputSocket(switchBed3Light.outputL).connect(bed3Light)
+    outputSocket(switchBed3Socket.outputL).connect(bed3Socket)
 
-    switchKitchenSocket.outputL.connect(kitchenSocket.inputL)
-    nullBus.outputN.connect(kitchenSocket.inputN)
-    groundBus.outputG.connect(kitchenSocket.inputG)
-
-    switchKitchenCooker.outputL.connect(kitchenCooker.inputL)
-    nullBus.outputN.connect(kitchenCooker.inputN)
-    groundBus.outputG.connect(kitchenCooker.inputG)
-
-    switchKitchenFridge.outputL.connect(kitchenFridge.inputL)
-    nullBus.outputN.connect(kitchenCooker.inputN)
-    groundBus.outputG.connect(kitchenCooker.inputG)
-
-    switchKitchenDishWasher.outputL.connect(kitchenDishWasher.inputL)
-    nullBus.outputN.connect(kitchenCooker.inputN)
-    groundBus.outputG.connect(kitchenCooker.inputG)
-
-
-    switchBed1Light.outputL.connect(bed1Light.inputL)
-    nullBus.outputN.connect(bed1Light.inputN)
-    groundBus.outputG.connect(bed1Light.inputG)
-
-    switchBed1Socket.outputL.connect(bed1Socket.inputL)
-    nullBus.outputN.connect(bed1Socket.inputN)
-    groundBus.outputG.connect(bed1Socket.inputG)
-
-    switchBed2Light.outputL.connect(bed2Light.inputL)
-    nullBus.outputN.connect(bed2Light.inputN)
-    groundBus.outputG.connect(bed2Light.inputG)
-
-    switchBed2Socket.outputL.connect(bed2Socket.inputL)
-    nullBus.outputN.connect(bed2Socket.inputN)
-    groundBus.outputG.connect(bed2Socket.inputG)
-
-    switchBed3Light.outputL.connect(bed3Light.inputL)
-    nullBus.outputN.connect(bed3Light.inputN)
-    groundBus.outputG.connect(bed3Light.inputG)
-
-    switchBed2Socket.outputL.connect(bed3Socket.inputL)
-    nullBus.outputN.connect(bed3Socket.inputN)
-    groundBus.outputG.connect(bed3Socket.inputG)
-
-
-    switchLivingLight.outputL.connect(livingLight.inputL)
-    nullBus.outputN.connect(bed2Light.inputN)
-    groundBus.outputG.connect(bed2Light.inputG)
-
-    switchLivingSocket.outputL.connect(livingSocket.inputL)
-    nullBus.outputN.connect(bed2Socket.inputN)
-    groundBus.outputG.connect(bed2Socket.inputG)
+    outputSocket(switchLivingLight.outputL).connect(livingLight)
+    outputSocket(switchLivingSocket.outputL).connect(livingSocket)
 
 }
