@@ -1,4 +1,4 @@
-package builder.com.anton.electric.dsl.support
+package com.anton.electric.dsl.support
 
 import org.codehaus.groovy.control.ConfigurationException
 

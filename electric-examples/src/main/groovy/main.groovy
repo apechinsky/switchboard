@@ -1,9 +1,7 @@
-import builder.com.anton.electric.dsl.SwitchboardLoader
+import com.anton.electric.dsl.SwitchboardLoader
 import com.anton.electric.render.dot.DotSwitchboardRenderer
 
-def switchboard = new File("config.groovy").withReader { reader ->
-    return new SwitchboardLoader().load(reader)
-}
+def switchboard = SwitchboardLoader.loadFile("config.groovy")
 
 println switchboard
 

@@ -1,4 +1,4 @@
-package builder.com.anton.electric.dsl.support
+package com.anton.electric.dsl.support
 
 /**
  *

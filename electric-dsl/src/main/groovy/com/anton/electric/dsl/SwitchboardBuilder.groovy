@@ -1,9 +1,10 @@
-package builder.com.anton.electric.dsl
+package com.anton.electric.dsl
 
-import builder.com.anton.electric.dsl.support.ObjectRegistry
+import com.anton.electric.dsl.support.GroovyUtils
 import com.anton.electric.model.Component
 import com.anton.electric.model.Output
-import com.anton.electric.model.*
+import com.anton.electric.model.Socket
+import com.anton.electric.model.Switchboard
 import com.anton.electric.model.impl.Ground
 import com.anton.electric.model.impl.NullBus
 
@@ -11,8 +12,6 @@ import com.anton.electric.model.impl.NullBus
  *
  */
 class SwitchboardBuilder {
-
-    private ObjectRegistry registry = new ObjectRegistry()
 
     private Component root
 
@@ -31,6 +30,12 @@ class SwitchboardBuilder {
         return new Switchboard(root, groundBus)
     }
 
+    Switchboard switchboard(Closure closure) {
+        def builder = new SwitchboardBuilder()
+        GroovyUtils.configure(closure, builder)
+        return builder.switchboard()
+    }
+
     Component root(Component root) {
         this.root = root;
         return root
@@ -47,14 +52,6 @@ class SwitchboardBuilder {
     Socket outputSocket(Output outputL) {
         return new Socket("socket", "socket", outputL, nullBus, groundBus)
     }
-
-
-    def configure(Closure closure, def delegate) {
-        closure.delegate = delegate
-        closure.setResolveStrategy(Closure.DELEGATE_FIRST)
-        closure.call()
-    }
-
 
 }
 
