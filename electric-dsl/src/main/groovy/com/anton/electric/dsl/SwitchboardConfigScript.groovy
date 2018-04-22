@@ -1,6 +1,7 @@
 package com.anton.electric.dsl
 
 import com.anton.electric.dsl.support.GroovyUtils
+import com.anton.electric.model.Switchboard
 
 /**
  * Switchboard DSL configuration bootstrapping script.
@@ -16,20 +17,30 @@ import com.anton.electric.dsl.support.GroovyUtils
  * }
  * </pre>
  *
- * @see SwitchboardLoader
+ * @see SwitchboardConfigLoader
  */
 abstract class SwitchboardConfigScript extends Script {
 
     /**
-     * Root DSL method.
+     * Define switchboard with closure.
      *
      * Creates SwitchboardBuilder and set it as closure delegate.
      *
      * @param closure configuration closure
      */
-    void switchboard(Closure closure) {
+    Switchboard switchboard(Closure closure) {
         binding.builder = new SwitchboardBuilder()
         GroovyUtils.configure(closure, binding.builder)
+
+        return binding.builder.switchboard()
     }
 
+    /**
+     * Loads switchboard DSL from file
+     *
+     * @param file
+     */
+    Switchboard switchboard(String file) {
+        return SwitchboardConfigLoader.loadFile(file)
+    }
 }

@@ -10,40 +10,54 @@ import com.anton.electric.model.Output;
 import com.google.common.collect.Sets;
 
 /**
- * Автомат-выключатель. Однополюсный.
+ * Автомат-выключатель. Двуполюсный.
  *
  * @author Q-APE
  */
-public class Switch extends AbstractComponent {
+public class Switch2 extends AbstractComponent {
 
     private Input inputL;
 
+    private Input inputN;
+
     private Output outputL;
 
-    public Switch(String id, String name, double price) {
-        super(id, name, 1, price);
+    private Output outputN;
+
+    public Switch2(String id, String name, double price) {
+        super(id, name, 2, price);
 
         this.inputL = new Input(this, ConnectorType.L);
+        this.inputN = new Input(this, ConnectorType.N);
 
         this.outputL = new Output(this, ConnectorType.L);
+        this.outputN = new Output(this, ConnectorType.N);
     }
 
     public Input getInputL() {
         return inputL;
     }
 
+    public Input getInputN() {
+        return inputN;
+    }
+
     public Output getOutputL() {
         return outputL;
     }
 
+    public Output getOutputN() {
+        return outputN;
+    }
+
     @Override
     public Set<Connector> inputs() {
-        return Sets.newHashSet(inputL);
+        return Sets.newHashSet(inputL, inputN);
     }
 
     @Override
     public Set<Connector> outputs() {
-        return Sets.newHashSet(outputL);
+        return Sets.newHashSet(outputL, outputN);
     }
 
 

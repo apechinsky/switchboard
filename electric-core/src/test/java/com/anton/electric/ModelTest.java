@@ -8,8 +8,9 @@ import com.anton.electric.model.Component;
 import com.anton.electric.model.Connector;
 import com.anton.electric.model.impl.Ground;
 import com.anton.electric.model.impl.Input380;
-import com.anton.electric.model.impl.InputSwitch;
+import com.anton.electric.model.impl.InputSwitch4;
 import com.anton.electric.model.impl.Uzm;
+import com.google.common.base.MoreObjects;
 
 /**
  * @author Q-APE
@@ -21,7 +22,7 @@ public class ModelTest {
         Ground ground = new Ground();
         Input380 input380 = new Input380("input", "Ввод", 0);
 
-        InputSwitch inputSwitch = new InputSwitch("inputSwitch", "Вводной автомат", 0);
+        InputSwitch4 inputSwitch = new InputSwitch4("inputSwitch", "Вводной автомат", 0);
 
         input380.getOutputL1().connect(inputSwitch.getInputL1());
         input380.getOutputL2().connect(inputSwitch.getInputL2());
@@ -46,6 +47,32 @@ public class ModelTest {
 //        Connector connector2 = link.peer(connector);
 //        Component component2 = connector2.component();
 
+    }
+
+    private class Item {
+        private String a;
+        private String b;
+
+        public Item(String a, String b) {
+            this.a = a;
+            this.b = b;
+        }
+
+        public String getA() {
+            return a;
+        }
+
+        public String getB() {
+            return b;
+        }
+
+        @Override
+        public String toString() {
+            return MoreObjects.toStringHelper(this)
+                .add("a", a)
+                .add("b", b)
+                .toString();
+        }
     }
 
     private void print(Component component) {

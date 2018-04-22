@@ -1,9 +1,14 @@
 apply plugin: 'groovy'
 apply plugin: 'java'
 
+apply plugin: 'application'
+
+mainClassName = "com.anton.electric.dsl.ProjectLoader"
+
 dependencies {
     compile project(':electric-core')
     compile project(':electric-dsl')
 
     compile 'org.codehaus.groovy:groovy-all:2.3.11'
 }
+ 

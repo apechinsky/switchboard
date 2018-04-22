@@ -25,7 +25,7 @@ public class Uzm extends AbstractComponent {
     private Output outputN;
 
     public Uzm(String id, String name, double price) {
-        super(id, name, price);
+        super(id, name, 2, price);
 
         this.inputL = new Input(this, ConnectorType.L);
         this.inputN = new Input(this, ConnectorType.N);

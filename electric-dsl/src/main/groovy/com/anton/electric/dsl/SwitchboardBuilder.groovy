@@ -6,7 +6,6 @@ import com.anton.electric.model.Output
 import com.anton.electric.model.Socket
 import com.anton.electric.model.Switchboard
 import com.anton.electric.model.impl.Ground
-import com.anton.electric.model.impl.NullBus
 
 /**
  *
@@ -15,15 +14,10 @@ class SwitchboardBuilder {
 
     private Component root
 
-    private List<Component> nodes
-
     private Ground groundBus
-
-    private NullBus nullBus
 
     SwitchboardBuilder() {
         this.groundBus = new Ground()
-        this.nullBus = new NullBus()
     }
 
     Switchboard switchboard() {
@@ -45,12 +39,8 @@ class SwitchboardBuilder {
         return groundBus
     }
 
-    NullBus nullBus() {
-        return nullBus
-    }
-
-    Socket outputSocket(Output outputL) {
-        return new Socket("socket", "socket", outputL, nullBus, groundBus)
+    Socket outputSocket(Output outputL, Output outputN) {
+        return new Socket("socket", "socket", outputL, outputN, groundBus.outputG)
     }
 
 }

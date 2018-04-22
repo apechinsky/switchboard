@@ -1,10 +1,6 @@
 package com.anton.electric.model.impl;
 
-import java.math.BigDecimal;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Set;
-import static java.util.Arrays.asList;
 
 import com.anton.electric.model.AbstractComponent;
 import com.anton.electric.model.Connector;
@@ -14,11 +10,11 @@ import com.anton.electric.model.Output;
 import com.google.common.collect.Sets;
 
 /**
- * Вводной автомат
+ * УЗО. Двуполюсное.
  *
  * @author Q-APE
  */
-public class InputSwitch extends AbstractComponent {
+public class Uzo4 extends AbstractComponent {
 
     private Input inputL1;
 
@@ -36,17 +32,17 @@ public class InputSwitch extends AbstractComponent {
 
     private Output outputN;
 
-    public InputSwitch(String id, String name, double price) {
-        super(id, name, price);
+    public Uzo4(String id, String name, double price) {
+        super(id, name, 4, price);
 
         this.inputL1 = new Input(this, ConnectorType.L);
         this.inputL2 = new Input(this, ConnectorType.L);
-        this.inputL3 = new Input(this, ConnectorType.L);
+        this.inputL2 = new Input(this, ConnectorType.L);
         this.inputN = new Input(this, ConnectorType.N);
 
         this.outputL1 = new Output(this, ConnectorType.L);
         this.outputL2 = new Output(this, ConnectorType.L);
-        this.outputL3 = new Output(this, ConnectorType.L);
+        this.outputL2 = new Output(this, ConnectorType.L);
         this.outputN = new Output(this, ConnectorType.N);
     }
 

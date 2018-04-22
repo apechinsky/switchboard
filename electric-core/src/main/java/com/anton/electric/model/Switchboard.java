@@ -45,6 +45,11 @@ public class Switchboard {
             .collect(Collectors.summingDouble(Component::price));
     }
 
+    public int getModules() {
+        return getComponents().stream()
+            .collect(Collectors.summingInt(Component::size));
+    }
+
     private void collectLinked(Component component, Map<String, Component> collector) {
 
         collector.put(component.id(), component);
@@ -58,6 +63,7 @@ public class Switchboard {
         return MoreObjects.toStringHelper(this)
             .add("components", getComponents().size())
             .add("price", getPrice())
+            .add("modules", getModules())
             .toString();
     }
 }

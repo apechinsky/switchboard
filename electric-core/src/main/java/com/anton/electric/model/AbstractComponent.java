@@ -1,12 +1,12 @@
 package com.anton.electric.model;
 
-import java.math.BigDecimal;
-import java.util.Set;
-import java.util.stream.Collectors;
-
 import com.google.common.base.MoreObjects;
 
 /**
+ * Базовый класс для компонентов.
+ *
+ * <p>Хранит общие для всех компонентов атрибуты (id, name, price).</p>
+ *
  * @author Q-APE
  */
 public abstract class AbstractComponent implements Component {
@@ -15,11 +15,14 @@ public abstract class AbstractComponent implements Component {
 
     private String name;
 
+    private int size;
+
     private double price;
 
-    public AbstractComponent(String id, String name, double price) {
+    public AbstractComponent(String id, String name, int size, double price) {
         this.id = id;
         this.name = name;
+        this.size = size;
         this.price = price;
     }
 
@@ -33,17 +36,13 @@ public abstract class AbstractComponent implements Component {
         return name;
     }
 
-    @Override
-    public double price() {
-        return price;
+    public int size() {
+        return size;
     }
 
     @Override
-    public Set<Component> getOutputComponents() {
-        return outputs().stream()
-            .flatMap(connector -> connector.getConnected().stream())
-            .map(Connector::getComponent)
-            .collect(Collectors.toSet());
+    public double price() {
+        return price;
     }
 
     @Override
@@ -51,6 +50,7 @@ public abstract class AbstractComponent implements Component {
         MoreObjects.ToStringHelper toStringHelper = MoreObjects.toStringHelper(this);
         toStringHelper.addValue(name());
         toStringHelper.add("id", id());
+        toStringHelper.add("size", size());
         toStringHelper.add("price", price());
 
         for (Connector connector : inputs()) {

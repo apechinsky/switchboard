@@ -1,7 +1,6 @@
 package com.anton.electric.model.impl;
 
 import java.util.Set;
-import static java.math.BigDecimal.ZERO;
 
 import com.anton.electric.model.AbstractComponent;
 import com.anton.electric.model.Connector;
@@ -21,8 +20,8 @@ public class NullBus extends AbstractComponent {
 
     private Output outputN;
 
-    public NullBus() {
-        super("null", "Нулевая шина", 0);
+    public NullBus(String id, String name, int price) {
+        super(id, name, 1, price);
 
         inputN = new Input(this, ConnectorType.N);
         outputN = new Output(this, ConnectorType.N);

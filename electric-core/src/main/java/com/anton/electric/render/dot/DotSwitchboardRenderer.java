@@ -4,9 +4,11 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -23,6 +25,8 @@ import com.anton.electric.model.impl.NullBus;
 import com.anton.electric.render.IndentWriter;
 
 /**
+ * Renders switchboard as directed graph with Dot language (Graphviz).
+ *
  * @author Q-APE
  */
 public class DotSwitchboardRenderer {
@@ -43,7 +47,6 @@ public class DotSwitchboardRenderer {
     public DotSwitchboardRenderer(Writer writer, String name) {
         this.name = name;
         this.writer = new IndentWriter(writer);
-
     }
 
     public DotSwitchboardRenderer(OutputStream out, String name) {
@@ -62,7 +65,7 @@ public class DotSwitchboardRenderer {
 
     private void renderBody(Switchboard switchboard) {
 
-        SortedSet<Level> levels = getComponentsByLevels(switchboard);
+        List<Level> levels = getComponentsByLevels(switchboard);
 
         writer.indentInc();
 
@@ -72,7 +75,27 @@ public class DotSwitchboardRenderer {
         });
 
         renderLinks(switchboard);
+    }
 
+    private List<Level> getComponentsByLevels(Switchboard switchboard) {
+        Set<Level> levels = new TreeSet<>(Comparator.comparing(Level::getId));
+
+        levels.add(new Level(switchboard.getGround(), 0));
+
+        collectComponents(switchboard.getRoot(), levels, 0);
+
+        List<Level> list = new ArrayList<>(levels);
+        list.sort(Comparator.comparing(Level::getDepth));
+
+        return list;
+    }
+
+    private void collectComponents(Component component, Set<Level> components, int depth) {
+
+        components.add(new Level(component, depth));
+
+        component.getOutputComponents().stream()
+            .forEach(c -> collectComponents(c, components, depth + 1));
     }
 
     private <T> Renderer<T> getRenderer(T item) {
@@ -81,23 +104,6 @@ public class DotSwitchboardRenderer {
             .map(Map.Entry::getValue)
             .findFirst()
             .orElseThrow(() -> Assert.failure("No renderer for item '%s'", item));
-    }
-
-    private SortedSet<Level> getComponentsByLevels(Switchboard switchboard) {
-        SortedSet<Level> levels = new TreeSet<>(Comparator.comparing(Level::getId));
-
-        levels.add(new Level(switchboard.getGround(), 0));
-
-        collectComponents(switchboard.getRoot(), levels, 0);
-
-        return levels;
-    }
-
-    private void collectComponents(Component component, Set<Level> components, int depth) {
-
-        components.add(new Level(component, depth));
-
-        component.getOutputComponents().stream().forEach(c -> collectComponents(c, components, depth + 1));
     }
 
     private void renderLinks(Switchboard switchboard) {
@@ -125,8 +131,8 @@ public class DotSwitchboardRenderer {
 
         writer.println("digraph %s {", name);
 
-        writer.println("label=\"Components: %d, Price: %.2f\";",
-            switchboard.getComponents().size(), switchboard.getPrice());
+        writer.println("label=\"Components: %d, Modules: %d, Price: %.2f\";",
+            switchboard.getComponents().size(), switchboard.getModules(), switchboard.getPrice());
 
         writer.println("node [shape=box];");
     }
@@ -174,6 +180,11 @@ public class DotSwitchboardRenderer {
         @Override
         public int hashCode() {
             return Objects.hash(component.id());
+        }
+
+        @Override
+        public String toString() {
+            return String.format("Level [%d, %s]", depth, component);
         }
     }
 

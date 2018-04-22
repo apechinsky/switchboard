@@ -23,7 +23,7 @@ public class Connector {
     private ConnectorType type;
 
     /**
-     * Спиок связей коннектора с другими коннекторами.
+     * Список связей коннектора с другими коннекторами.
      */
     private List<Link> links;
 

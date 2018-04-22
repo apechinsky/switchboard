@@ -19,7 +19,7 @@ public class Socket extends AbstractComponent {
     private Output outputG;
 
     public Socket(String id, String name, Output outputL, Output outputN, Output outputG) {
-        super(id, name, 0);
+        super(id, name, 1, 0);
 
         this.outputL = outputL;
         this.outputN = outputN;

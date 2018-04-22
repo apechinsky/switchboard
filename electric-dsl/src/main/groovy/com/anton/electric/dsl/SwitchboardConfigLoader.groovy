@@ -7,11 +7,11 @@ import org.codehaus.groovy.control.CompilerConfiguration
 /**
  * Switchboard DSL config loader.
  */
-public class SwitchboardLoader {
+public class SwitchboardConfigLoader {
 
     public static Switchboard load(File file) {
-        return new File("config.groovy").withReader { reader ->
-            return new SwitchboardLoader().load(reader)
+        return file.withReader { reader ->
+            return new SwitchboardConfigLoader().load(reader)
         }
     }
 

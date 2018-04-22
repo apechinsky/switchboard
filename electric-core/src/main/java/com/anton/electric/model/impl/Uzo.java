@@ -10,7 +10,7 @@ import com.anton.electric.model.Output;
 import com.google.common.collect.Sets;
 
 /**
- * УЗО.
+ * УЗО. Двуполюсное.
  *
  * @author Q-APE
  */
@@ -25,7 +25,7 @@ public class Uzo extends AbstractComponent {
     private Output outputN;
 
     public Uzo(String id, String name, double price) {
-        super(id, name, price);
+        super(id, name, 2, price);
 
         this.inputL = new Input(this, ConnectorType.L);
         this.inputN = new Input(this, ConnectorType.N);

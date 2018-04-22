@@ -25,7 +25,7 @@ public class VoltAmperMeter extends AbstractComponent {
     private Output outputN;
 
     public VoltAmperMeter(String id, String name, double price) {
-        super(id, name, price);
+        super(id, name, 2, price);
 
         this.inputL = new Input(this, ConnectorType.L);
         this.inputN = new Input(this, ConnectorType.N);
@@ -59,6 +59,5 @@ public class VoltAmperMeter extends AbstractComponent {
     public Set<Connector> outputs() {
         return Sets.newHashSet(outputL, outputN);
     }
-
 
 }
