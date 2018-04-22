@@ -13,9 +13,9 @@ Switchboard switchboard = builder.switchboard {
 
     def inputSwitch = new InputSwitch('inputSwitch', 'Вводной автомат', 15)
 
-    def voltageRelay2 = new VoltageRelay('voltageRelay2', 'Реле напряжения', 20)
-    def voltageRelay1 = new VoltageRelay('voltageRelay1', 'Реле напряжения', 20)
-    def voltageRelay3 = new VoltageRelay('voltageRelay3', 'Реле напряжения', 20)
+    def uzm1 = new Uzm('uzm1', 'Реле напряжения', 20)
+    def uzm2 = new Uzm('uzm2', 'Реле напряжения', 20)
+    def uzm3 = new Uzm('uzm3', 'Реле напряжения', 20)
 
     def uzo1 = new Uzo('uzo1', 'УЗО', 25)
     def uzo2 = new Uzo('uzo2', 'УЗО', 25)
@@ -67,23 +67,23 @@ Switchboard switchboard = builder.switchboard {
     input.outputL3.connect(inputSwitch.inputL3)
     input.outputN.connect(inputSwitch.inputN)
 
-    inputSwitch.outputL1.connect(voltageRelay1.inputL)
-    inputSwitch.outputN.connect(voltageRelay1.inputN)
+    inputSwitch.outputL1.connect(uzm1.inputL)
+    inputSwitch.outputN.connect(uzm1.inputN)
 
-    inputSwitch.outputL2.connect(voltageRelay2.inputL)
-    inputSwitch.outputN.connect(voltageRelay2.inputN)
+    inputSwitch.outputL2.connect(uzm2.inputL)
+    inputSwitch.outputN.connect(uzm2.inputN)
 
-    inputSwitch.outputL3.connect(voltageRelay3.inputL)
-    inputSwitch.outputN.connect(voltageRelay3.inputN)
+    inputSwitch.outputL3.connect(uzm3.inputL)
+    inputSwitch.outputN.connect(uzm3.inputN)
 
-    voltageRelay1.outputL.connect(uzo1.inputL)
-    voltageRelay1.outputN.connect(uzo1.inputN)
+    uzm1.outputL.connect(uzo1.inputL)
+    uzm1.outputN.connect(uzo1.inputN)
 
-    voltageRelay2.outputL.connect(uzo2.inputL)
-    voltageRelay2.outputN.connect(uzo2.inputN)
+    uzm2.outputL.connect(uzo2.inputL)
+    uzm2.outputN.connect(uzo2.inputN)
 
-    voltageRelay3.outputL.connect(uzo3.inputL)
-    voltageRelay3.outputN.connect(uzo3.inputN)
+    uzm3.outputL.connect(uzo3.inputL)
+    uzm3.outputN.connect(uzo3.inputN)
 
 
     uzo1.outputN.connect(nullBus.inputN)

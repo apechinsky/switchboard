@@ -1,10 +1,6 @@
 package com.anton.electric.model.impl;
 
-import java.math.BigDecimal;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Set;
-import static java.util.Arrays.asList;
 
 import com.anton.electric.model.AbstractComponent;
 import com.anton.electric.model.Connector;
@@ -14,11 +10,11 @@ import com.anton.electric.model.Output;
 import com.google.common.collect.Sets;
 
 /**
- * Реле напряжения.
+ * Вольт-Ампер метр (ВАР).
  *
  * @author Q-APE
  */
-public class VoltageRelay extends AbstractComponent {
+public class VoltAmperMeter extends AbstractComponent {
 
     private Input inputL;
 
@@ -28,7 +24,7 @@ public class VoltageRelay extends AbstractComponent {
 
     private Output outputN;
 
-    public VoltageRelay(String id, String name, double price) {
+    public VoltAmperMeter(String id, String name, double price) {
         super(id, name, price);
 
         this.inputL = new Input(this, ConnectorType.L);

@@ -7,9 +7,13 @@ switchboard {
 
     def inputSwitch = new InputSwitch('inputSwitch', 'Вводной автомат', 15)
 
-    def voltageRelay2 = new VoltageRelay('voltageRelay2', 'Реле напряжения', 20)
-    def voltageRelay1 = new VoltageRelay('voltageRelay1', 'Реле напряжения', 20)
-    def voltageRelay3 = new VoltageRelay('voltageRelay3', 'Реле напряжения', 20)
+    def vam1 = new VoltAmperMeter('vam1', 'ВАР', 20)
+    def vam2 = new VoltAmperMeter('vam2', 'ВАР', 20)
+    def vam3 = new VoltAmperMeter('vam3', 'ВАР', 20)
+
+    def uzm1 = new Uzm('uzm1', 'УЗМ', 20)
+    def uzm2 = new Uzm('uzm2', 'УЗМ', 20)
+    def uzm3 = new Uzm('uzm3', 'УЗМ', 20)
 
     def uzo1 = new Uzo('uzo1', 'УЗО', 25)
     def uzo2 = new Uzo('uzo2', 'УЗО', 25)
@@ -61,24 +65,23 @@ switchboard {
     input.outputL3.connect(inputSwitch.inputL3)
     input.outputN.connect(inputSwitch.inputN)
 
-    inputSwitch.outputL1.connect(voltageRelay1.inputL)
-    inputSwitch.outputN.connect(voltageRelay1.inputN)
 
-    inputSwitch.outputL2.connect(voltageRelay2.inputL)
-    inputSwitch.outputN.connect(voltageRelay2.inputN)
+    inputSwitch.outputL1.connect(vam1.inputL)
+    inputSwitch.outputN.connect(vam1.inputN)
 
-    inputSwitch.outputL3.connect(voltageRelay3.inputL)
-    inputSwitch.outputN.connect(voltageRelay3.inputN)
+    inputSwitch.outputL2.connect(vam2.inputL)
+    inputSwitch.outputN.connect(vam2.inputN)
 
-    voltageRelay1.outputL.connect(uzo1.inputL)
-    voltageRelay1.outputN.connect(uzo1.inputN)
+    inputSwitch.outputL3.connect(vam3.inputL)
+    inputSwitch.outputN.connect(vam3.inputN)
 
-    voltageRelay2.outputL.connect(uzo2.inputL)
-    voltageRelay2.outputN.connect(uzo2.inputN)
+    vam1.connect(uzm1)
+    vam2.connect(uzm2)
+    vam3.connect(uzm3)
 
-    voltageRelay3.outputL.connect(uzo3.inputL)
-    voltageRelay3.outputN.connect(uzo3.inputN)
-
+    uzm1.connect(uzo1)
+    uzm2.connect(uzo2)
+    uzm3.connect(uzo3)
 
     uzo1.outputN.connect(nullBus.inputN)
     uzo1.outputL.connect(switchKitchenLight.inputL)

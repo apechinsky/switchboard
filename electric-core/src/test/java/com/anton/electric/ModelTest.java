@@ -1,18 +1,15 @@
 package com.anton.electric;
 
 import java.util.Collection;
-import java.util.Set;
 
 import org.junit.Test;
 
 import com.anton.electric.model.Component;
 import com.anton.electric.model.Connector;
-import com.anton.electric.model.Link;
-import com.anton.electric.model.Wire;
 import com.anton.electric.model.impl.Ground;
 import com.anton.electric.model.impl.Input380;
 import com.anton.electric.model.impl.InputSwitch;
-import com.anton.electric.model.impl.VoltageRelay;
+import com.anton.electric.model.impl.Uzm;
 
 /**
  * @author Q-APE
@@ -31,13 +28,13 @@ public class ModelTest {
         input380.getOutputL3().connect(inputSwitch.getInputL3());
         input380.getOutputN().connect(inputSwitch.getInputN());
 
-        VoltageRelay voltageRelay1 = new VoltageRelay("voltageRelay1", "Реле напряжения", 0);
-        VoltageRelay voltageRelay2 = new VoltageRelay("voltageRelay2", "Реле напряжения", 0);
-        VoltageRelay voltageRelay3 = new VoltageRelay("voltageRelay3", "Реле напряжения", 0);
+        Uzm uzm1 = new Uzm("uzm1", "Реле напряжения", 0);
+        Uzm uzm2 = new Uzm("uzm2", "Реле напряжения", 0);
+        Uzm uzm3 = new Uzm("uzm3", "Реле напряжения", 0);
 
-        inputSwitch.getOutputL1().connect(voltageRelay1.getInputL());
-        inputSwitch.getOutputL2().connect(voltageRelay2.getInputL());
-        inputSwitch.getOutputL3().connect(voltageRelay3.getInputL());
+        inputSwitch.getOutputL1().connect(uzm1.getInputL());
+        inputSwitch.getOutputL2().connect(uzm2.getInputL());
+        inputSwitch.getOutputL3().connect(uzm3.getInputL());
 
         print(input380);
 
