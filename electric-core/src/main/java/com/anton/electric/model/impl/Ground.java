@@ -21,7 +21,7 @@ public class Ground extends AbstractComponent {
     private Output outputG;
 
     public Ground() {
-        super("ground", "Земля", 0, 0);
+        super("ground", "Земля", 0, 16, 0);
 
         inputG = new Input(this, ConnectorType.G);
         outputG = new Output(this, ConnectorType.G);

@@ -1,0 +1,218 @@
+digraph Electric {
+    label="Components: 74, Modules: 64, Price: 585.00";
+    node [shape=box];
+    ground [label="ground\nЗемля\n0.00", style=filled, color=darkgreen];
+    input380 [label="input380\nВвод\n0.00"];
+    inputSwitch [label="inputSwitch\nВводной автомат\n15.00"];
+    zoFire [label="zoFire\nУЗО 100ma\n40.00"];
+    vam1 [label="vam1\nВАР\n20.00"];
+    vam2 [label="vam2\nВАР\n20.00"];
+    vam3 [label="vam3\nВАР\n20.00"];
+    uzm1 [label="uzm1\nУЗМ\n20.00"];
+    uzm2 [label="uzm2\nУЗМ\n20.00"];
+    uzm3 [label="uzm3\nУЗМ\n20.00"];
+    uzo1 [label="uzo1\nУЗО\n25.00"];
+    uzo2 [label="uzo2\nУЗО\n25.00"];
+    uzo3 [label="uzo3\nУЗО\n25.00"];
+    uzo4 [label="uzo4\nУЗО\n25.00"];
+    uzo5 [label="uzo5\nУЗО\n25.00"];
+    uzo6 [label="uzo6\nУЗО\n25.00"];
+    null1 [label="null1\nНулевая шина 1\n0.00", style=filled, color=blue];
+    null2 [label="null2\nНулевая шина 2\n0.00", style=filled, color=blue];
+    null3 [label="null3\nНулевая шина 3\n0.00", style=filled, color=blue];
+    null4 [label="null4\nНулевая шина 4\n0.00", style=filled, color=blue];
+    null5 [label="null5\nНулевая шина 5\n0.00", style=filled, color=blue];
+    switchBathLight [label="switchBathLight\nАвтомат\n10.00"];
+    switchBathSocket [label="switchBathSocket\nАвтомат\n10.00"];
+    switchBathWasher [label="switchBathWasher\nАвтомат\n10.00"];
+    switchBed1Light [label="switchBed1Light\nАвтомат\n10.00"];
+    switchBed1Socket [label="switchBed1Socket\nАвтомат\n10.00"];
+    switchBed2Light [label="switchBed2Light\nАвтомат\n10.00"];
+    switchBed2Socket [label="switchBed2Socket\nАвтомат\n10.00"];
+    switchBed3Light [label="switchBed3Light\nАвтомат\n10.00"];
+    switchBed3Socket [label="switchBed3Socket\nАвтомат\n10.00"];
+    switchBoilerGasBoiler [label="switchBoilerGasBoiler\nАвтомат\n10.00"];
+    switchBoilerLight [label="switchBoilerLight\nАвтомат\n10.00"];
+    switchBoilerSocket [label="switchBoilerSocket\nАвтомат\n10.00"];
+    switchCorridorLight [label="switchCorridorLight\nАвтомат\n10.00"];
+    switchCorridorSocket [label="switchCorridorSocket\nАвтомат\n10.00"];
+    switchKitchenConvector [label="switchKitchenConvector\nАвтомат\n10.00"];
+    switchKitchenCooker [label="switchKitchenCooker\nАвтомат\n10.00"];
+    switchKitchenDishWasher [label="switchKitchenDishWasher\nАвтомат\n10.00"];
+    switchKitchenFridge [label="switchKitchenFridge\nАвтомат\n10.00"];
+    switchKitchenLight [label="switchKitchenLight\nАвтомат\n10.00"];
+    switchKitchenSocket [label="switchKitchenSocket\nАвтомат\n10.00"];
+    switchLivingConvector [label="switchLivingConvector\nАвтомат\n10.00"];
+    switchLivingLight [label="switchLivingLight\nАвтомат\n10.00"];
+    switchLivingSocket [label="switchLivingSocket\nАвтомат\n10.00"];
+    switchWardrobeLight [label="switchWardrobeLight\nАвтомат\n10.00"];
+    switchWcLight [label="switchWcLight\nАвтомат\n10.00"];
+    switchWcSocket [label="switchWcSocket\nАвтомат\n10.00"];
+    bathLight [label="bathLight\nВанная. Свет\n0.00"];
+    bathSocket [label="bathSocket\nВанная. Розетки\n0.00"];
+    bathWasher [label="bathWasher\nВанная. Стиральная машина\n0.00"];
+    bed1Light [label="bed1Light\nСпальня 1. Свет\n0.00"];
+    bed1Socket [label="bed1Socket\nСпальня 1. Розетки\n0.00"];
+    bed2Light [label="bed2Light\nСпальня 2. Свет\n0.00"];
+    bed2Socket [label="bed2Socket\nСпальня 2. Розетки\n0.00"];
+    bed3Light [label="bed3Light\nСпальня 3. Свет\n0.00"];
+    bed3Socket [label="bed3Socket\nСпальня 3. Розетки\n0.00"];
+    boilerGasBoiler [label="boilerGasBoiler\nТопочная. Котел\n0.00"];
+    boilerLight [label="boilerLight\nТопочная. Свет\n0.00"];
+    boilerSocket [label="boilerSocket\nТопочная. Розетки\n0.00"];
+    corridorLight [label="corridorLight\nКоридор. Свет\n0.00"];
+    corridorSocket [label="corridorSocket\nКоридор. Розетки\n0.00"];
+    kitchenConvector [label="kitchenConvector\nКухня. Конвектор.\n0.00"];
+    kitchenCooker [label="kitchenCooker\nКухня. Электроплита.\n0.00"];
+    kitchenDishWasher [label="kitchenDishWasher\nКухня. Посудомойка.\n0.00"];
+    kitchenFridge [label="kitchenFridge\nКухня. Холодильник.\n0.00"];
+    kitchenLight [label="kitchenLight\nКухня. Свет.\n0.00"];
+    kitchenSocket [label="kitchenSocket\nКухня. Розетки.\n0.00"];
+    livingConvector [label="livingConvector\nГостиная. Конвекторы\n0.00"];
+    livingLight [label="livingLight\nГостиная. Свет\n0.00"];
+    livingSocket [label="livingSocket\nГостиная. Розетки\n0.00"];
+    wardrobeLight [label="wardrobeLight\nГардероб. Свет\n0.00"];
+    wardrobeSocket [label="wardrobeSocket\nГардероб. Розетки\n0.00"];
+    wcLight [label="wcLight\nТуалет. Свет\n0.00"];
+    wcSocket [label="wcSocket\nТуалет. Вывод\n0.00"];
+    input380 -> inputSwitch [label="", color=red]
+    input380 -> inputSwitch [label="", color=red]
+    input380 -> inputSwitch [label="", color=blue]
+    input380 -> inputSwitch [label="", color=red]
+    inputSwitch -> zoFire [label="", color=red]
+    inputSwitch -> zoFire [label="", color=blue]
+    inputSwitch -> zoFire [label="", color=red]
+    inputSwitch -> zoFire [label="", color=red]
+    zoFire -> vam1 [label="", color=red]
+    zoFire -> vam3 [label="", color=red]
+    zoFire -> vam2 [label="", color=red]
+    zoFire -> vam1 [label="", color=blue]
+    zoFire -> vam2 [label="", color=blue]
+    zoFire -> vam3 [label="", color=blue]
+    vam3 -> uzm3 [label="", color=blue]
+    vam3 -> uzm3 [label="", color=red]
+    uzm3 -> uzo4 [label="", color=blue]
+    uzm3 -> uzo5 [label="", color=blue]
+    uzm3 -> uzo6 [label="", color=blue]
+    uzm3 -> uzo4 [label="", color=red]
+    uzm3 -> uzo5 [label="", color=red]
+    uzm3 -> uzo6 [label="", color=red]
+    uzo5 -> switchCorridorLight [label="", color=red]
+    uzo5 -> switchCorridorSocket [label="", color=red]
+    uzo5 -> switchWcLight [label="", color=red]
+    uzo5 -> switchWcSocket [label="", color=red]
+    uzo5 -> switchWardrobeLight [label="", color=red]
+    uzo5 -> null5 [label="", color=blue]
+    switchWcSocket -> wcSocket [label="", color=red]
+    switchWardrobeLight -> wardrobeLight [label="", color=red]
+    switchCorridorLight -> corridorLight [label="", color=red]
+    switchWcLight -> wcLight [label="", color=red]
+    switchCorridorSocket -> corridorSocket [label="", color=red]
+    null5 -> corridorLight [label="", color=blue]
+    null5 -> corridorSocket [label="", color=blue]
+    null5 -> wardrobeLight [label="", color=blue]
+    null5 -> wardrobeSocket [label="", color=blue]
+    null5 -> wcLight [label="", color=blue]
+    null5 -> wcSocket [label="", color=blue]
+    uzo6 -> switchBoilerLight [label="", color=red]
+    uzo6 -> switchBoilerSocket [label="", color=red]
+    uzo6 -> switchBoilerGasBoiler [label="", color=red]
+    switchBoilerGasBoiler -> boilerGasBoiler [label="", color=red]
+    switchBoilerSocket -> boilerSocket [label="", color=red]
+    switchBoilerLight -> boilerLight [label="", color=red]
+    uzo4 -> switchBathLight [label="", color=red]
+    uzo4 -> switchBathSocket [label="", color=red]
+    uzo4 -> switchBathWasher [label="", color=red]
+    uzo4 -> null4 [label="", color=blue]
+    null4 -> bathLight [label="", color=blue]
+    null4 -> bathSocket [label="", color=blue]
+    null4 -> bathWasher [label="", color=blue]
+    switchBathSocket -> bathSocket [label="", color=red]
+    switchBathWasher -> bathWasher [label="", color=red]
+    switchBathLight -> bathLight [label="", color=red]
+    vam1 -> uzm1 [label="", color=red]
+    vam1 -> uzm1 [label="", color=blue]
+    uzm1 -> uzo1 [label="", color=blue]
+    uzm1 -> uzo2 [label="", color=blue]
+    uzm1 -> uzo1 [label="", color=red]
+    uzm1 -> uzo2 [label="", color=red]
+    uzo1 -> null1 [label="", color=blue]
+    uzo1 -> switchKitchenLight [label="", color=red]
+    uzo1 -> switchKitchenSocket [label="", color=red]
+    uzo1 -> switchKitchenCooker [label="", color=red]
+    uzo1 -> switchKitchenFridge [label="", color=red]
+    uzo1 -> switchKitchenDishWasher [label="", color=red]
+    uzo1 -> switchKitchenConvector [label="", color=red]
+    null1 -> kitchenLight [label="", color=blue]
+    null1 -> kitchenSocket [label="", color=blue]
+    null1 -> kitchenCooker [label="", color=blue]
+    null1 -> kitchenDishWasher [label="", color=blue]
+    null1 -> kitchenFridge [label="", color=blue]
+    null1 -> kitchenConvector [label="", color=blue]
+    switchKitchenSocket -> kitchenSocket [label="", color=red]
+    switchKitchenDishWasher -> kitchenDishWasher [label="", color=red]
+    switchKitchenConvector -> kitchenConvector [label="", color=red]
+    switchKitchenFridge -> kitchenFridge [label="", color=red]
+    switchKitchenCooker -> kitchenCooker [label="", color=red]
+    switchKitchenLight -> kitchenLight [label="", color=red]
+    uzo2 -> switchBed1Light [label="", color=red]
+    uzo2 -> switchBed1Socket [label="", color=red]
+    uzo2 -> switchBed2Light [label="", color=red]
+    uzo2 -> switchBed2Socket [label="", color=red]
+    uzo2 -> switchBed3Light [label="", color=red]
+    uzo2 -> switchBed3Socket [label="", color=red]
+    uzo2 -> null2 [label="", color=blue]
+    switchBed3Socket -> bed3Socket [label="", color=red]
+    switchBed1Socket -> bed1Socket [label="", color=red]
+    switchBed2Light -> bed2Light [label="", color=red]
+    switchBed1Light -> bed1Light [label="", color=red]
+    switchBed2Socket -> bed2Socket [label="", color=red]
+    switchBed3Light -> bed3Light [label="", color=red]
+    null2 -> bed1Light [label="", color=blue]
+    null2 -> bed1Socket [label="", color=blue]
+    null2 -> bed2Light [label="", color=blue]
+    null2 -> bed2Socket [label="", color=blue]
+    null2 -> bed3Light [label="", color=blue]
+    null2 -> bed3Socket [label="", color=blue]
+    vam2 -> uzm2 [label="", color=red]
+    vam2 -> uzm2 [label="", color=blue]
+    uzm2 -> uzo3 [label="", color=blue]
+    uzm2 -> uzo3 [label="", color=red]
+    uzo3 -> switchLivingLight [label="", color=red]
+    uzo3 -> switchLivingSocket [label="", color=red]
+    uzo3 -> switchLivingConvector [label="", color=red]
+    uzo3 -> null3 [label="", color=blue]
+    switchLivingLight -> livingLight [label="", color=red]
+    switchLivingSocket -> livingSocket [label="", color=red]
+    null3 -> livingLight [label="", color=blue]
+    null3 -> livingSocket [label="", color=blue]
+    null3 -> livingConvector [label="", color=blue]
+    switchLivingConvector -> livingConvector [label="", color=red]
+    ground -> kitchenLight [label="", color=green]
+    ground -> kitchenSocket [label="", color=green]
+    ground -> kitchenCooker [label="", color=green]
+    ground -> kitchenDishWasher [label="", color=green]
+    ground -> kitchenFridge [label="", color=green]
+    ground -> kitchenConvector [label="", color=green]
+    ground -> bed1Light [label="", color=green]
+    ground -> bed1Socket [label="", color=green]
+    ground -> bed2Light [label="", color=green]
+    ground -> bed2Socket [label="", color=green]
+    ground -> bed3Light [label="", color=green]
+    ground -> bed3Socket [label="", color=green]
+    ground -> livingLight [label="", color=green]
+    ground -> livingSocket [label="", color=green]
+    ground -> livingConvector [label="", color=green]
+    ground -> bathLight [label="", color=green]
+    ground -> bathSocket [label="", color=green]
+    ground -> bathWasher [label="", color=green]
+    ground -> corridorLight [label="", color=green]
+    ground -> corridorSocket [label="", color=green]
+    ground -> wardrobeLight [label="", color=green]
+    ground -> wardrobeSocket [label="", color=green]
+    ground -> wcLight [label="", color=green]
+    ground -> wcSocket [label="", color=green]
+    ground -> boilerLight [label="", color=green]
+    ground -> boilerSocket [label="", color=green]
+    ground -> boilerGasBoiler [label="", color=green]
+}

@@ -16,12 +16,14 @@ import com.google.common.collect.Sets;
  */
 public class NullBus extends AbstractComponent {
 
+    private static final int CURRENT = 100;
+
     private Input inputN;
 
     private Output outputN;
 
     public NullBus(String id, String name, int price) {
-        super(id, name, 1, price);
+        super(id, name, 1, CURRENT, price);
 
         inputN = new Input(this, ConnectorType.N);
         outputN = new Output(this, ConnectorType.N);

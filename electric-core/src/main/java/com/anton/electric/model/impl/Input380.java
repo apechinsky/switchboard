@@ -32,8 +32,8 @@ public class Input380 extends AbstractComponent {
 
     private Output outputN;
 
-    public Input380(String id, String name, double price) {
-        super(id, name, 1, price);
+    public Input380(String id, String name, int current, double price) {
+        super(id, name, 1, current, price);
 
         this.inputL1 = new Input(this, ConnectorType.L);
         this.inputL2 = new Input(this, ConnectorType.L);

@@ -40,7 +40,7 @@ class SwitchboardBuilder {
     }
 
     Socket outputSocket(Output outputL, Output outputN) {
-        return new Socket("socket", "socket", outputL, outputN, groundBus.outputG)
+        return new Socket("socket", "socket", 16, outputL, outputN, groundBus.outputG)
     }
 
 }

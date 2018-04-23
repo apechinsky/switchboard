@@ -10,7 +10,7 @@ import com.anton.electric.model.Output;
 import com.google.common.collect.Sets;
 
 /**
- * УЗО. Двуполюсное.
+ * УЗО. Четырехполюсное. Трехфазное.
  *
  * @author Q-APE
  */
@@ -32,17 +32,17 @@ public class Uzo4 extends AbstractComponent {
 
     private Output outputN;
 
-    public Uzo4(String id, String name, double price) {
-        super(id, name, 4, price);
+    public Uzo4(String id, String name, int current, double price) {
+        super(id, name, 4, current, price);
 
         this.inputL1 = new Input(this, ConnectorType.L);
         this.inputL2 = new Input(this, ConnectorType.L);
-        this.inputL2 = new Input(this, ConnectorType.L);
+        this.inputL3 = new Input(this, ConnectorType.L);
         this.inputN = new Input(this, ConnectorType.N);
 
         this.outputL1 = new Output(this, ConnectorType.L);
         this.outputL2 = new Output(this, ConnectorType.L);
-        this.outputL2 = new Output(this, ConnectorType.L);
+        this.outputL3 = new Output(this, ConnectorType.L);
         this.outputN = new Output(this, ConnectorType.N);
     }
 
@@ -87,6 +87,5 @@ public class Uzo4 extends AbstractComponent {
     public Set<Connector> outputs() {
         return Sets.newHashSet(outputL1, outputL2, outputL3, outputN);
     }
-
 
 }

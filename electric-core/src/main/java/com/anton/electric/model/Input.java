@@ -2,7 +2,6 @@ package com.anton.electric.model;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 import com.google.common.base.MoreObjects;
 

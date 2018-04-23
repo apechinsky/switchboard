@@ -20,8 +20,8 @@ public class Switch extends AbstractComponent {
 
     private Output outputL;
 
-    public Switch(String id, String name, double price) {
-        super(id, name, 1, price);
+    public Switch(String id, String name, int current, double price) {
+        super(id, name, 1, current, price);
 
         this.inputL = new Input(this, ConnectorType.L);
 

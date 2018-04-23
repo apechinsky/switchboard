@@ -1,5 +1,8 @@
 package com.anton.electric.model;
 
+import java.util.Set;
+import static java.util.Collections.emptySet;
+
 import com.google.common.base.MoreObjects;
 
 /**
@@ -17,11 +20,14 @@ public abstract class AbstractComponent implements Component {
 
     private int size;
 
+    private int current;
+
     private double price;
 
-    public AbstractComponent(String id, String name, int size, double price) {
+    public AbstractComponent(String id, String name, int size, int current, double price) {
         this.id = id;
         this.name = name;
+        this.current = current;
         this.size = size;
         this.price = price;
     }
@@ -36,8 +42,14 @@ public abstract class AbstractComponent implements Component {
         return name;
     }
 
+    @Override
     public int size() {
         return size;
+    }
+
+    @Override
+    public int current() {
+        return current;
     }
 
     @Override
@@ -46,10 +58,21 @@ public abstract class AbstractComponent implements Component {
     }
 
     @Override
+    public Set<Connector> inputs() {
+        return emptySet();
+    }
+
+    @Override
+    public Set<Connector> outputs() {
+        return emptySet();
+    }
+
+    @Override
     public String toString() {
         MoreObjects.ToStringHelper toStringHelper = MoreObjects.toStringHelper(this);
         toStringHelper.addValue(name());
         toStringHelper.add("id", id());
+        toStringHelper.add("current", current());
         toStringHelper.add("size", size());
         toStringHelper.add("price", price());
 

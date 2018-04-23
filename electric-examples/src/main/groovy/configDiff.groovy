@@ -5,62 +5,62 @@ import com.anton.electric.model.impl.*
 
 switchboard {
 
-    Input380 input = root(new Input380('input380', 'Ввод', 0))
+    Input380 input = root(new Input380('input380', 'Ввод', 63, 0))
 
-    def inputSwitch = new InputSwitch4('inputSwitch', 'Вводной автомат', 15)
+    def inputSwitch = new InputSwitch4('inputSwitch', 'Вводной автомат', 64, 15)
 
-    def vam1 = new VoltAmperMeter('vam1', 'ВАР', 20)
-    def vam2 = new VoltAmperMeter('vam2', 'ВАР', 20)
-    def vam3 = new VoltAmperMeter('vam3', 'ВАР', 20)
+    def vam1 = new VoltAmperMeter('vam1', 'ВАР', 30, 20)
+    def vam2 = new VoltAmperMeter('vam2', 'ВАР', 30, 20)
+    def vam3 = new VoltAmperMeter('vam3', 'ВАР', 30, 20)
 
-    def uzm1 = new Uzm('uzm1', 'УЗМ', 20)
-    def uzm2 = new Uzm('uzm2', 'УЗМ', 20)
-    def uzm3 = new Uzm('uzm3', 'УЗМ', 20)
+    def uzm1 = new Uzm('uzm1', 'УЗМ', 16, 20)
+    def uzm2 = new Uzm('uzm2', 'УЗМ', 16, 20)
+    def uzm3 = new Uzm('uzm3', 'УЗМ', 16, 20)
 
-    def uzo1 = new Uzo('uzo1', 'УЗО', 25)
-    def uzo2 = new Uzo('uzo2', 'УЗО', 25)
-    def uzo3 = new Uzo('uzo3', 'УЗО', 25)
+    def uzo1 = new Uzo('uzo1', 'УЗО', 16, 25)
+    def uzo2 = new Uzo('uzo2', 'УЗО', 16, 25)
+    def uzo3 = new Uzo('uzo3', 'УЗО', 16, 25)
 
     def nullBus1 = new NullBus("null1", "Нулевая шина 1", 0)
     def nullBus2 = new NullBus("null2", "Нулевая шина 2", 0)
     def nullBus3 = new NullBus("null3", "Нулевая шина 3", 0)
 
-    def switchKitchenLight = new Switch('switchKitchenLight', 'Автомат 16A', 10)
-    def switchKitchenSocket = new Switch('switchKitchenSocket', 'Автомат 16A', 10)
-    def switchKitchenCooker = new Switch('switchKitchenCooker', 'Автомат 16A', 10)
-    def switchKitchenFridge = new Switch('switchKitchenFridge', 'Автомат 16A', 10)
-    def switchKitchenDishWasher = new Switch('switchKitchenDishWasher', 'Автомат 16A', 10)
+    def switchKitchenLight = new Switch('switchKitchenLight', 'Автомат 16A', 16, 10)
+    def switchKitchenSocket = new Switch('switchKitchenSocket', 'Автомат 16A', 16, 10)
+    def switchKitchenCooker = new Switch('switchKitchenCooker', 'Автомат 16A', 16, 10)
+    def switchKitchenFridge = new Switch('switchKitchenFridge', 'Автомат 16A', 16, 10)
+    def switchKitchenDishWasher = new Switch('switchKitchenDishWasher', 'Автомат 16A', 16, 10)
 
-    def switchBed1Light = new Switch('switchBed1Light', 'Автомат 16A', 10)
-    def switchBed1Socket = new Switch('switchBed1Socket', 'Автомат 16A', 10)
+    def switchBed1Light = new Switch('switchBed1Light', 'Автомат 16A', 16, 10)
+    def switchBed1Socket = new Switch('switchBed1Socket', 'Автомат 16A', 16, 10)
 
-    def switchBed2Light = new Switch('switchBed2Light', 'Автомат 16A', 10)
-    def switchBed2Socket = new Switch('switchBed2Socket', 'Автомат 16A', 10)
+    def switchBed2Light = new Switch('switchBed2Light', 'Автомат 16A', 16, 10)
+    def switchBed2Socket = new Switch('switchBed2Socket', 'Автомат 16A', 16, 10)
 
-    def switchBed3Light = new Switch('switchBed3Light', 'Автомат 16A', 10)
-    def switchBed3Socket = new Switch('switchBed3Socket', 'Автомат 16A', 10)
+    def switchBed3Light = new Switch('switchBed3Light', 'Автомат 16A', 16, 10)
+    def switchBed3Socket = new Switch('switchBed3Socket', 'Автомат 16A', 16, 10)
 
-    def switchLivingLight = new Switch('switchLivingLight', 'Автомат 16A', 10)
-    def switchLivingSocket = new Switch('switchLivingSocket', 'Автомат 16A', 10)
+    def switchLivingLight = new Switch('switchLivingLight', 'Автомат 16A', 16, 10)
+    def switchLivingSocket = new Switch('switchLivingSocket', 'Автомат 16A', 16, 10)
 
 
-    def kitchenLight = new Consumer("kitchenLight", "Кухня. Свет.", 0)
-    def kitchenSocket = new Consumer("kitchenSocket", "Кухня. Розетки.", 0)
-    def kitchenCooker = new Consumer("kitchenCooker", "Кухня. Электроплита.", 0)
-    def kitchenDishWasher = new Consumer("kitchenDishWasher", "Кухня. Посудомойка.", 0)
-    def kitchenFridge = new Consumer("kitchenFridge", "Кухня. Холодильник.", 0)
+    def kitchenLight = new Consumer("kitchenLight", "Кухня. Свет.", 16, 0)
+    def kitchenSocket = new Consumer("kitchenSocket", "Кухня. Розетки.", 16, 0)
+    def kitchenCooker = new Consumer("kitchenCooker", "Кухня. Электроплита.", 16, 0)
+    def kitchenDishWasher = new Consumer("kitchenDishWasher", "Кухня. Посудомойка.", 16, 0)
+    def kitchenFridge = new Consumer("kitchenFridge", "Кухня. Холодильник.", 16, 0)
 
-    def bed1Light = new Consumer("bed1Light", "Спальня 1. Свет", 0)
-    def bed1Socket = new Consumer("bed1Socket", "Спальня 1. Розетки", 0)
+    def bed1Light = new Consumer("bed1Light", "Спальня 1. Свет", 16, 0)
+    def bed1Socket = new Consumer("bed1Socket", "Спальня 1. Розетки", 16, 0)
 
-    def bed2Light = new Consumer("bed2Light", "Спальня 2. Свет", 0)
-    def bed2Socket = new Consumer("bed2Socket", "Спальня 2. Розетки", 0)
+    def bed2Light = new Consumer("bed2Light", "Спальня 2. Свет", 16, 0)
+    def bed2Socket = new Consumer("bed2Socket", "Спальня 2. Розетки", 16, 0)
 
-    def bed3Light = new Consumer("bed3Light", "Спальня 3. Свет", 0)
-    def bed3Socket = new Consumer("bed3Socket", "Спальня 3. Розетки", 0)
+    def bed3Light = new Consumer("bed3Light", "Спальня 3. Свет", 16, 0)
+    def bed3Socket = new Consumer("bed3Socket", "Спальня 3. Розетки", 16, 0)
 
-    def livingLight = new Consumer("livingLight", "Гостиная. Свет", 0)
-    def livingSocket = new Consumer("livingSocket", "Гостиная. Розетки", 0)
+    def livingLight = new Consumer("livingLight", "Гостиная. Свет", 16, 0)
+    def livingSocket = new Consumer("livingSocket", "Гостиная. Розетки", 16, 0)
 
     input.outputL1.connect(inputSwitch.inputL1)
     input.outputL2.connect(inputSwitch.inputL2)

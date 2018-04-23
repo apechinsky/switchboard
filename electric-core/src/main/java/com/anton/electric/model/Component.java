@@ -32,6 +32,11 @@ public interface Component {
     int size();
 
     /**
+     * Ток в амперах.
+     */
+    int current();
+
+    /**
      * Цена компонента
      */
     double price();

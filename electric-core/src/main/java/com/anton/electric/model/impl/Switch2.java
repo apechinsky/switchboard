@@ -24,8 +24,8 @@ public class Switch2 extends AbstractComponent {
 
     private Output outputN;
 
-    public Switch2(String id, String name, double price) {
-        super(id, name, 2, price);
+    public Switch2(String id, String name, int current, double price) {
+        super(id, name, 2, current, price);
 
         this.inputL = new Input(this, ConnectorType.L);
         this.inputN = new Input(this, ConnectorType.N);

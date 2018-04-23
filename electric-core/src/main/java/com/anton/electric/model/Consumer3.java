@@ -28,8 +28,8 @@ public class Consumer3 extends AbstractComponent {
 
     private Input inputG;
 
-    public Consumer3(String id, String name, double price) {
-        super(id, name, 0, price);
+    public Consumer3(String id, String name, int current, double price) {
+        super(id, name, 0, current, price);
 
         inputL1 = new Input(this, ConnectorType.L);
         inputL2 = new Input(this, ConnectorType.L);
@@ -63,8 +63,4 @@ public class Consumer3 extends AbstractComponent {
         return Sets.newHashSet(inputL1, inputL2, inputL3, inputN, inputG);
     }
 
-    @Override
-    public Set<Connector> outputs() {
-        return emptySet();
-    }
 }

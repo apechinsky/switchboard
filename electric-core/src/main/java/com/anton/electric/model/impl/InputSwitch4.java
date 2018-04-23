@@ -32,8 +32,8 @@ public class InputSwitch4 extends AbstractComponent {
 
     private Output outputN;
 
-    public InputSwitch4(String id, String name, double price) {
-        super(id, name, 4, price);
+    public InputSwitch4(String id, String name, int current, double price) {
+        super(id, name, 4, current, price);
 
         this.inputL1 = new Input(this, ConnectorType.L);
         this.inputL2 = new Input(this, ConnectorType.L);

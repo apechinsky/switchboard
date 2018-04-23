@@ -20,18 +20,18 @@ public class ModelTest {
     @Test
     public void name() throws Exception {
         Ground ground = new Ground();
-        Input380 input380 = new Input380("input", "Ввод", 0);
+        Input380 input380 = new Input380("input", "Ввод", 63, 0);
 
-        InputSwitch4 inputSwitch = new InputSwitch4("inputSwitch", "Вводной автомат", 0);
+        InputSwitch4 inputSwitch = new InputSwitch4("inputSwitch", "Вводной автомат", 64, 0);
 
         input380.getOutputL1().connect(inputSwitch.getInputL1());
         input380.getOutputL2().connect(inputSwitch.getInputL2());
         input380.getOutputL3().connect(inputSwitch.getInputL3());
         input380.getOutputN().connect(inputSwitch.getInputN());
 
-        Uzm uzm1 = new Uzm("uzm1", "Реле напряжения", 0);
-        Uzm uzm2 = new Uzm("uzm2", "Реле напряжения", 0);
-        Uzm uzm3 = new Uzm("uzm3", "Реле напряжения", 0);
+        Uzm uzm1 = new Uzm("uzm1", "Реле напряжения", 16, 0);
+        Uzm uzm2 = new Uzm("uzm2", "Реле напряжения", 16, 0);
+        Uzm uzm3 = new Uzm("uzm3", "Реле напряжения", 16, 0);
 
         inputSwitch.getOutputL1().connect(uzm1.getInputL());
         inputSwitch.getOutputL2().connect(uzm2.getInputL());

@@ -18,8 +18,8 @@ public class Socket extends AbstractComponent {
 
     private Output outputG;
 
-    public Socket(String id, String name, Output outputL, Output outputN, Output outputG) {
-        super(id, name, 1, 0);
+    public Socket(String id, String name, int current, Output outputL, Output outputN, Output outputG) {
+        super(id, name, 1, current, 0);
 
         this.outputL = outputL;
         this.outputN = outputN;
@@ -38,10 +38,6 @@ public class Socket extends AbstractComponent {
         return outputG;
     }
 
-    @Override
-    public Set<Connector> inputs() {
-        return emptySet();
-    }
 
     @Override
     public Set<Connector> outputs() {
