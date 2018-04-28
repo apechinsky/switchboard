@@ -1,6 +1,3 @@
-package com.anton.electric.render
-
-import com.anton.electric.model.*
 import com.anton.electric.model.impl.*
 
 switchboard {
@@ -70,44 +67,7 @@ switchboard {
     def switchBoilerSocket = new Switch('switchBoilerSocket', 'Автомат', 16, 10)
     def switchBoilerGasBoiler = new Switch('switchBoilerGasBoiler', 'Автомат', 25, 10)
 
-
-
-    def kitchenLight = new Consumer("kitchenLight", "Кухня. Свет.", 16, 0)
-    def kitchenSocket = new Consumer("kitchenSocket", "Кухня. Розетки.", 16, 0)
-    def kitchenCooker = new Consumer("kitchenCooker", "Кухня. Электроплита.", 16, 0)
-    def kitchenFridge = new Consumer("kitchenFridge", "Кухня. Холодильник.", 16, 0)
-    def kitchenDishWasher = new Consumer("kitchenDishWasher", "Кухня. Посудомойка.", 16, 0)
-    def kitchenConvector = new Consumer("kitchenConvector", "Кухня. Конвектор.", 16, 0)
-
-    def bed1Light = new Consumer("bed1Light", "Спальня 1. Свет", 16, 0)
-    def bed1Socket = new Consumer("bed1Socket", "Спальня 1. Розетки", 16, 0)
-
-    def bed2Light = new Consumer("bed2Light", "Спальня 2. Свет", 16, 0)
-    def bed2Socket = new Consumer("bed2Socket", "Спальня 2. Розетки", 16, 0)
-
-    def bed3Light = new Consumer("bed3Light", "Спальня 3. Свет", 16, 0)
-    def bed3Socket = new Consumer("bed3Socket", "Спальня 3. Розетки", 16, 0)
-
-    def livingLight = new Consumer("livingLight", "Гостиная. Свет", 16, 0)
-    def livingSocket = new Consumer("livingSocket", "Гостиная. Розетки", 16, 0)
-    def livingConvector = new Consumer("livingConvector", "Гостиная. Конвекторы", 16, 0)
-
-    def bathLight = new Consumer("bathLight", "Ванная. Свет", 16, 0)
-    def bathSocket = new Consumer("bathSocket", "Ванная. Розетки", 16, 0)
-    def bathWasher = new Consumer("bathWasher", "Ванная. Стиральная машина", 16, 0)
-
-    def wcLight = new Consumer("wcLight", "Туалет. Свет", 16, 0)
-    def wcSocket = new Consumer("wcSocket", "Туалет. Вывод", 16, 0)
-
-    def wardrobeLight = new Consumer("wardrobeLight", "Гардероб. Свет", 16, 0)
-    def wardrobeSocket = new Consumer("wardrobeSocket", "Гардероб. Розетки", 16, 0)
-
-    def corridorLight = new Consumer("corridorLight", "Коридор. Свет", 16, 0)
-    def corridorSocket = new Consumer("corridorSocket", "Коридор. Розетки", 16, 0)
-
-    def boilerLight = new Consumer("boilerLight", "Топочная. Свет", 16, 0)
-    def boilerSocket = new Consumer("boilerSocket", "Топочная. Розетки", 16, 0)
-    def boilerGasBoiler = new Consumer("boilerGasBoiler", "Топочная. Котел", 16, 0)
+    def consumers = new Consumers()
 
     input380.outputL1.connect(inputSwitch.inputL1)
     input380.outputL2.connect(inputSwitch.inputL2)
@@ -176,40 +136,40 @@ switchboard {
     uzo6.outputL.connect(switchBoilerGasBoiler.inputL)
 
 
-    outputSocket(switchKitchenLight.outputL, nullBus1.outputN).connect(kitchenLight)
-    outputSocket(switchKitchenSocket.outputL, nullBus1.outputN).connect(kitchenSocket)
-    outputSocket(switchKitchenCooker.outputL, nullBus1.outputN).connect(kitchenCooker)
-    outputSocket(switchKitchenDishWasher.outputL, nullBus1.outputN).connect(kitchenDishWasher)
-    outputSocket(switchKitchenFridge.outputL, nullBus1.outputN).connect(kitchenFridge)
-    outputSocket(switchKitchenConvector.outputL, nullBus1.outputN).connect(kitchenConvector)
+    outputSocket(switchKitchenLight.outputL, nullBus1.outputN).connect(consumers.kitchenLight)
+    outputSocket(switchKitchenSocket.outputL, nullBus1.outputN).connect(consumers.kitchenSocket)
+    outputSocket(switchKitchenCooker.outputL, nullBus1.outputN).connect(consumers.kitchenCooker)
+    outputSocket(switchKitchenDishWasher.outputL, nullBus1.outputN).connect(consumers.kitchenDishWasher)
+    outputSocket(switchKitchenFridge.outputL, nullBus1.outputN).connect(consumers.kitchenFridge)
+    outputSocket(switchKitchenConvector.outputL, nullBus1.outputN).connect(consumers.kitchenConvector)
 
-    outputSocket(switchBed1Light.outputL, nullBus2.outputN).connect(bed1Light)
-    outputSocket(switchBed1Socket.outputL, nullBus2.outputN).connect(bed1Socket)
+    outputSocket(switchBed1Light.outputL, nullBus2.outputN).connect(consumers.bed1Light)
+    outputSocket(switchBed1Socket.outputL, nullBus2.outputN).connect(consumers.bed1Socket)
 
-    outputSocket(switchBed2Light.outputL, nullBus2.outputN).connect(bed2Light)
-    outputSocket(switchBed2Socket.outputL, nullBus2.outputN).connect(bed2Socket)
+    outputSocket(switchBed2Light.outputL, nullBus2.outputN).connect(consumers.bed2Light)
+    outputSocket(switchBed2Socket.outputL, nullBus2.outputN).connect(consumers.bed2Socket)
 
-    outputSocket(switchBed3Light.outputL, nullBus2.outputN).connect(bed3Light)
-    outputSocket(switchBed3Socket.outputL, nullBus2.outputN).connect(bed3Socket)
+    outputSocket(switchBed3Light.outputL, nullBus2.outputN).connect(consumers.bed3Light)
+    outputSocket(switchBed3Socket.outputL, nullBus2.outputN).connect(consumers.bed3Socket)
 
-    outputSocket(switchLivingLight.outputL, nullBus3.outputN).connect(livingLight)
-    outputSocket(switchLivingSocket.outputL, nullBus3.outputN).connect(livingSocket)
-    outputSocket(switchLivingConvector.outputL, nullBus3.outputN).connect(livingConvector)
+    outputSocket(switchLivingLight.outputL, nullBus3.outputN).connect(consumers.livingLight)
+    outputSocket(switchLivingSocket.outputL, nullBus3.outputN).connect(consumers.livingSocket)
+    outputSocket(switchLivingConvector.outputL, nullBus3.outputN).connect(consumers.livingConvector)
 
-    outputSocket(switchBathLight.outputL, nullBus4.outputN).connect(bathLight)
-    outputSocket(switchBathSocket.outputL, nullBus4.outputN).connect(bathSocket)
-    outputSocket(switchBathWasher.outputL, nullBus4.outputN).connect(bathWasher)
+    outputSocket(switchBathLight.outputL, nullBus4.outputN).connect(consumers.bathLight)
+    outputSocket(switchBathSocket.outputL, nullBus4.outputN).connect(consumers.bathSocket)
+    outputSocket(switchBathWasher.outputL, nullBus4.outputN).connect(consumers.bathWasher)
 
-    outputSocket(switchCorridorLight.outputL, nullBus5.outputN).connect(corridorLight)
-    outputSocket(switchCorridorSocket.outputL, nullBus5.outputN).connect(corridorSocket)
-    outputSocket(switchWardrobeLight.outputL, nullBus5.outputN).connect(wardrobeLight)
-    outputSocket(switchWardrobeSocket.outputL, nullBus5.outputN).connect(wardrobeSocket)
-    outputSocket(switchWcLight.outputL, nullBus5.outputN).connect(wcLight)
-    outputSocket(switchWcSocket.outputL, nullBus5.outputN).connect(wcSocket)
+    outputSocket(switchCorridorLight.outputL, nullBus5.outputN).connect(consumers.corridorLight)
+    outputSocket(switchCorridorSocket.outputL, nullBus5.outputN).connect(consumers.corridorSocket)
+    outputSocket(switchWardrobeLight.outputL, nullBus5.outputN).connect(consumers.wardrobeLight)
+    outputSocket(switchWardrobeSocket.outputL, nullBus5.outputN).connect(consumers.wardrobeSocket)
+    outputSocket(switchWcLight.outputL, nullBus5.outputN).connect(consumers.wcLight)
+    outputSocket(switchWcSocket.outputL, nullBus5.outputN).connect(consumers.wcSocket)
 
-    outputSocket(switchBoilerLight.outputL, nullBus6.outputN).connect(boilerLight)
-    outputSocket(switchBoilerSocket.outputL, nullBus6.outputN).connect(boilerSocket)
-    outputSocket(switchBoilerGasBoiler.outputL, nullBus6.outputN).connect(boilerGasBoiler)
+    outputSocket(switchBoilerLight.outputL, nullBus6.outputN).connect(consumers.boilerLight)
+    outputSocket(switchBoilerSocket.outputL, nullBus6.outputN).connect(consumers.boilerSocket)
+    outputSocket(switchBoilerGasBoiler.outputL, nullBus6.outputN).connect(consumers.boilerGasBoiler)
 
 }
 

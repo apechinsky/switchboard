@@ -69,6 +69,7 @@ switchboard {
     def switchBoilerSocket = new Switch('switchBoilerSocket', 'Автомат', 16, 10)
     def switchBoilerGasBoiler = new Switch('switchBoilerGasBoiler', 'Автомат', 25, 10)
 
+    def consumers = new Consumers()
 
     def kitchenLight = new Consumer("kitchenLight", "Кухня. Свет.", 10, 0)
     def kitchenSocket = new Consumer("kitchenSocket", "Кухня. Розетки.", 16, 0)
@@ -174,7 +175,8 @@ switchboard {
     uzo6.outputL.connect(switchBoilerGasBoiler.inputL)
 
 
-    outputSocket(switchKitchenLight.outputL, nullBus1.outputN).connect(kitchenLight)
+//    outputSocket(switchKitchenLight.outputL, nullBus1.outputN).connect(kitchenLight)
+    outputSocket(switchKitchenLight.outputL, nullBus1.outputN).connect(consumers.kitchenLight)
     outputSocket(switchKitchenSocket.outputL, nullBus1.outputN).connect(kitchenSocket)
     outputSocket(switchKitchenCooker.outputL, nullBus1.outputN).connect(kitchenCooker)
     outputSocket(switchKitchenDishWasher.outputL, nullBus1.outputN).connect(kitchenDishWasher)

@@ -6,7 +6,7 @@ import static java.util.Collections.emptySet;
 import com.google.common.collect.Sets;
 
 /**
- * Трехфазный потребитель (фаза, ноль, заземление)
+ * Трехфазный потребитель (3 фазы, ноль, заземление)
  *
  * <ul>
  *     <li>розетка</li>
