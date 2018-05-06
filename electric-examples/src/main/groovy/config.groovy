@@ -2,11 +2,15 @@ import com.anton.electric.model.impl.*
 
 switchboard {
 
+    name = "Simple"
+
+    def consumers = new MyConsumers()
+
     Input380 input380 = root(new Input380('input380', 'Ввод', 63, 0))
 
     def inputSwitch = new InputSwitch4('inputSwitch', 'Вводной автомат', 64, 15)
 
-    def uzoFire = new Uzo4('zoFire', "УЗО 100ma", 63, 40)
+    def uzoFire = new Uzo4('zoFire', "УЗО 63A/100ma", 63, 300, 40)
 
     def vam1 = new VoltAmperMeter('vam1', 'ВАР', 30, 20)
     def vam2 = new VoltAmperMeter('vam2', 'ВАР', 30, 20)
@@ -16,19 +20,21 @@ switchboard {
     def uzm2 = new Uzm('uzm2', 'УЗМ', 16, 20)
     def uzm3 = new Uzm('uzm3', 'УЗМ', 16, 20)
 
-    def uzo1 = new Uzo('uzo1', 'УЗО', 16, 25)
-    def uzo2 = new Uzo('uzo2', 'УЗО', 16, 25)
-    def uzo3 = new Uzo('uzo3', 'УЗО', 16, 25)
-    def uzo4 = new Uzo('uzo4', 'УЗО', 16, 25)
-    def uzo5 = new Uzo('uzo5', 'УЗО', 16, 25)
-    def uzo6 = new Uzo('uzo6', 'УЗО', 16, 25)
+    def uzo1 = new Uzo('uzo1', 'УЗО 20A/30мА', 16, 10, 25)
+    def uzo2 = new Uzo('uzo2', 'УЗО 20A/30мА', 16, 10, 25)
+    def uzo3 = new Uzo('uzo3', 'УЗО 20A/30мА', 16, 10, 25)
+    def uzo4 = new Uzo('uzo4', 'УЗО 20A/30мА', 16, 10, 25)
+    def uzo5 = new Uzo('uzo5', 'УЗО 20A/30мА', 16, 10, 25)
+    def uzo6 = new Uzo('uzo6', 'УЗО 20A/30мА', 16, 10, 25)
+    def uzo7 = new Uzo('uzo7', 'УЗО 20A/30мА', 16, 10, 25)
 
     def nullBus1 = new NullBus("null1", "Нулевая шина 1", 0)
     def nullBus2 = new NullBus("null2", "Нулевая шина 2", 0)
     def nullBus3 = new NullBus("null3", "Нулевая шина 3", 0)
     def nullBus4 = new NullBus("null4", "Нулевая шина 4", 0)
     def nullBus5 = new NullBus("null5", "Нулевая шина 5", 0)
-    def nullBus6 = new NullBus("null6", "Нулевая шина 5", 0)
+    def nullBus6 = new NullBus("null6", "Нулевая шина 6", 0)
+    def nullBus7 = new NullBus("null7", "Нулевая шина 7", 0)
 
     def switchKitchenLight = new Switch('switchKitchenLight', 'Автомат', 10, 10)
     def switchKitchenSocket = new Switch('switchKitchenSocket', 'Автомат', 16, 10)
@@ -67,7 +73,11 @@ switchboard {
     def switchBoilerSocket = new Switch('switchBoilerSocket', 'Автомат', 16, 10)
     def switchBoilerGasBoiler = new Switch('switchBoilerGasBoiler', 'Автомат', 25, 10)
 
-    def consumers = new Consumers()
+    def switchAtticLight = new Switch('switchAtticLight', 'Автомат', 10, 10)
+    def switchAtticSocket1 = new Switch('switchAtticSocket1', 'Автомат', 16, 10)
+    def switchAtticSocket2 = new Switch('switchAtticSocket2', 'Автомат', 16, 10)
+
+
 
     input380.outputL1.connect(inputSwitch.inputL1)
     input380.outputL2.connect(inputSwitch.inputL2)
@@ -96,6 +106,7 @@ switchboard {
     uzm3.connect(uzo4)
     uzm3.connect(uzo5)
     uzm3.connect(uzo6)
+    uzm3.connect(uzo7)
 
     uzo1.outputN.connect(nullBus1.inputN)
     uzo1.outputL.connect(switchKitchenLight.inputL)
@@ -131,9 +142,15 @@ switchboard {
     uzo5.outputL.connect(switchWardrobeLight.inputL)
     uzo5.outputL.connect(switchWardrobeLight.inputL)
 
+    uzo6.outputN.connect(nullBus6.inputN)
     uzo6.outputL.connect(switchBoilerLight.inputL)
     uzo6.outputL.connect(switchBoilerSocket.inputL)
     uzo6.outputL.connect(switchBoilerGasBoiler.inputL)
+
+    uzo7.outputN.connect(nullBus7.inputN)
+    uzo7.outputL.connect(switchAtticLight.inputL)
+    uzo7.outputL.connect(switchAtticSocket1.inputL)
+    uzo7.outputL.connect(switchAtticSocket2.inputL)
 
 
     outputSocket(switchKitchenLight.outputL, nullBus1.outputN).connect(consumers.kitchenLight)
@@ -170,6 +187,10 @@ switchboard {
     outputSocket(switchBoilerLight.outputL, nullBus6.outputN).connect(consumers.boilerLight)
     outputSocket(switchBoilerSocket.outputL, nullBus6.outputN).connect(consumers.boilerSocket)
     outputSocket(switchBoilerGasBoiler.outputL, nullBus6.outputN).connect(consumers.boilerGasBoiler)
+
+    outputSocket(switchAtticLight.outputL, nullBus7.outputN).connect(consumers.atticLight)
+    outputSocket(switchAtticSocket1.outputL, nullBus7.outputN).connect(consumers.atticSocket1)
+    outputSocket(switchAtticSocket2.outputL, nullBus7.outputN).connect(consumers.atticSocket2)
 
 }
 

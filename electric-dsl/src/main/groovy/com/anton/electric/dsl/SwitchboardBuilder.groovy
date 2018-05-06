@@ -5,6 +5,7 @@ import com.anton.electric.model.Component
 import com.anton.electric.model.Output
 import com.anton.electric.model.Socket
 import com.anton.electric.model.Switchboard
+import com.anton.electric.model.impl.Diff
 import com.anton.electric.model.impl.Ground
 
 /**
@@ -12,23 +13,26 @@ import com.anton.electric.model.impl.Ground
  */
 class SwitchboardBuilder {
 
+    private String name
+
     private Component root
 
     private Ground groundBus
 
     SwitchboardBuilder() {
+        this.name = "noname"
         this.groundBus = new Ground()
     }
 
     Switchboard switchboard() {
-        return new Switchboard(root, groundBus)
+        return new Switchboard(name, root, groundBus)
     }
 
-    Switchboard switchboard(Closure closure) {
-        def builder = new SwitchboardBuilder()
-        GroovyUtils.configure(closure, builder)
-        return builder.switchboard()
-    }
+//    Switchboard switchboard(Closure closure) {
+//        def builder = new SwitchboardBuilder()
+//        GroovyUtils.configure(closure, builder)
+//        return builder.switchboard()
+//    }
 
     Component root(Component root) {
         this.root = root;
@@ -41,6 +45,10 @@ class SwitchboardBuilder {
 
     Socket outputSocket(Output outputL, Output outputN) {
         return new Socket("socket", "socket", 16, outputL, outputN, groundBus.outputG)
+    }
+
+    Socket outputSocket(Diff diff) {
+        return outputSocket(diff.outputL, diff.outputN)
     }
 
 }

@@ -1,4 +1,4 @@
-import com.anton.electric.model.Consumer
+import com.anton.electric.model.Consumers
 
 /**
  * Потребители электроэнергии дома.
@@ -9,9 +9,9 @@ import com.anton.electric.model.Consumer
  * 
  * @author Q-APE
  */
-class Consumers {
+class MyConsumers extends Consumers {
 
-    private List<Consumer> consumers = []
+    def weakSwitchboard = consumer("weakSwitchboard", "Слаботочный щит.", 16, 0)
 
     def kitchenLight = consumer("kitchenLight", "Кухня. Свет.", 10, 0)
     def kitchenSocket = consumer("kitchenSocket", "Кухня. Розетки.", 16, 0)
@@ -55,15 +55,6 @@ class Consumers {
     def atticSocket2 = consumer("atticSocket2", "Мансарда. Розетки.", 16, 0)
 
 
-    private Consumer consumer(String id, String name, int current, double price) {
-        def consumer = new Consumer(id, name, current, price)
-        consumers += consumer
-        return consumer
-    }
-
-    int count() {
-        return consumers.size()
-    }
 
 
 

@@ -24,14 +24,22 @@ public class Diff extends AbstractComponent {
 
     private Output outputN;
 
-    public Diff(String id, String name, int current, double price) {
+    private int diffCurrent;
+
+    public Diff(String id, String name, int current, int diffCurrent, double price) {
         super(id, name, 2, current, price);
+
+        this.diffCurrent = diffCurrent;
 
         this.inputL = new Input(this, ConnectorType.L);
         this.inputN = new Input(this, ConnectorType.N);
 
         this.outputL = new Output(this, ConnectorType.L);
         this.outputN = new Output(this, ConnectorType.N);
+    }
+
+    public int getDiffCurrent() {
+        return diffCurrent;
     }
 
     public Input getInputL() {
@@ -48,6 +56,11 @@ public class Diff extends AbstractComponent {
 
     public Output getOutputN() {
         return outputN;
+    }
+
+    @Override
+    public String spec() {
+        return String.format("%dA/%dmA", current(), getDiffCurrent());
     }
 
     @Override

@@ -7,6 +7,6 @@ import com.anton.electric.render.IndentWriter;
  */
 public interface Renderer<T> {
 
-    void render(T item, IndentWriter writer);
+    void render(T item, IndentWriter writer, DotSwitchboardRendererConfig config);
 
 }

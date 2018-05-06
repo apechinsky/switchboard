@@ -37,12 +37,12 @@ public class Switch4 extends AbstractComponent {
 
         this.inputL1 = new Input(this, ConnectorType.L);
         this.inputL2 = new Input(this, ConnectorType.L);
-        this.inputL2 = new Input(this, ConnectorType.L);
+        this.inputL3 = new Input(this, ConnectorType.L);
         this.inputN = new Input(this, ConnectorType.N);
 
         this.outputL1 = new Output(this, ConnectorType.L);
         this.outputL2 = new Output(this, ConnectorType.L);
-        this.outputL2 = new Output(this, ConnectorType.L);
+        this.outputL3 = new Output(this, ConnectorType.L);
         this.outputN = new Output(this, ConnectorType.N);
     }
 

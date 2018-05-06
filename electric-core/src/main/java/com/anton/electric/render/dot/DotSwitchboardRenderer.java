@@ -1,9 +1,6 @@
 package com.anton.electric.render.dot;
 
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.io.Writer;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -12,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.TreeSet;
 
 import org.srplib.contract.Assert;
@@ -44,13 +40,12 @@ public class DotSwitchboardRenderer {
 
     private IndentWriter writer;
 
-    public DotSwitchboardRenderer(Writer writer, String name) {
+    private DotSwitchboardRendererConfig config;
+
+    public DotSwitchboardRenderer(Writer writer, String name, DotSwitchboardRendererConfig config) {
         this.name = name;
         this.writer = new IndentWriter(writer);
-    }
-
-    public DotSwitchboardRenderer(OutputStream out, String name) {
-        this(new OutputStreamWriter(out, StandardCharsets.UTF_8), name);
+        this.config = config;
     }
 
     public void render(Switchboard switchboard) {
@@ -71,7 +66,7 @@ public class DotSwitchboardRenderer {
 
         levels.forEach(level -> {
             Renderer<Object> renderer = getRenderer(level.getComponent());
-            renderer.render(level.getComponent(), writer);
+            renderer.render(level.getComponent(), writer, config);
         });
 
         renderLinks(switchboard);
@@ -109,7 +104,10 @@ public class DotSwitchboardRenderer {
     private void renderLinks(Switchboard switchboard) {
         Set<Link> visited = new HashSet<>();
         renderLinks(switchboard.getRoot(), visited);
-        renderLinks(switchboard.getGround(), visited);
+
+        if (config.isRenderGroundLinks()) {
+            renderLinks(switchboard.getGround(), visited);
+        }
     }
 
     private void renderLinks(Component root, Set<Link> visited) {
@@ -118,7 +116,7 @@ public class DotSwitchboardRenderer {
             .flatMap(connector -> connector.getLinks().stream())
             .filter(link -> !visited.contains(link))
             .forEach(link -> {
-                getRenderer(link).render(link, writer);
+                getRenderer(link).render(link, writer, config);
                 visited.add(link);
             });
 
@@ -131,10 +129,13 @@ public class DotSwitchboardRenderer {
 
         writer.println("digraph %s {", name);
 
-        writer.println("label=\"Components: %d, Modules: %d, Price: %.2f\";",
+        writer.indentInc();
+
+        writer.println("label=\"Компонентов: %d, DIN модулей: %d, Стоимость: %.2f\";",
             switchboard.getComponents().size(), switchboard.getModules(), switchboard.getPrice());
 
-        writer.println("node [shape=box];");
+        writer.println("node [shape=box, style=rounded];");
+        writer.println("edge [arrowhead=none];");
     }
 
     private void writeFooter() {

@@ -32,8 +32,15 @@ public class Uzo4 extends AbstractComponent {
 
     private Output outputN;
 
-    public Uzo4(String id, String name, int current, double price) {
+    /**
+     * Ток утечки (mA)
+     */
+    private int diffCurrent;
+
+    public Uzo4(String id, String name, int current, int diffCurrent, double price) {
         super(id, name, 4, current, price);
+
+        this.diffCurrent = diffCurrent;
 
         this.inputL1 = new Input(this, ConnectorType.L);
         this.inputL2 = new Input(this, ConnectorType.L);
@@ -44,6 +51,10 @@ public class Uzo4 extends AbstractComponent {
         this.outputL2 = new Output(this, ConnectorType.L);
         this.outputL3 = new Output(this, ConnectorType.L);
         this.outputN = new Output(this, ConnectorType.N);
+    }
+
+    public int getDiffCurrent() {
+        return diffCurrent;
     }
 
     public Input getInputL1() {
@@ -76,6 +87,11 @@ public class Uzo4 extends AbstractComponent {
 
     public Output getOutputN() {
         return outputN;
+    }
+
+    @Override
+    public String spec() {
+        return String.format("%dA/%dmA", current(), getDiffCurrent());
     }
 
     @Override

@@ -21,7 +21,7 @@ public class LinkRenderer implements Renderer<Link> {
         connectorColors.put(ConnectorType.L, "red");
     }
 
-    public void render(Link item, IndentWriter writer) {
+    public void render(Link item, IndentWriter writer, DotSwitchboardRendererConfig config) {
         Component first = item.first().getComponent();
         Component second = item.second().getComponent();
 

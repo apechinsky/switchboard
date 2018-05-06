@@ -16,13 +16,20 @@ import com.google.common.base.MoreObjects;
  */
 public class Switchboard {
 
+    private String name;
+
     private Component root;
 
     private Ground ground;
 
-    public Switchboard(Component root, Ground ground) {
+    public Switchboard(String name, Component root, Ground ground) {
+        this.name = name;
         this.root = root;
         this.ground = ground;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public Component getRoot() {
@@ -61,6 +68,7 @@ public class Switchboard {
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
+            .add("name", name)
             .add("components", getComponents().size())
             .add("price", getPrice())
             .add("modules", getModules())

@@ -3,10 +3,12 @@ package com.anton.electric.model.impl;
 import java.util.Set;
 
 import com.anton.electric.model.AbstractComponent;
+import com.anton.electric.model.Component;
 import com.anton.electric.model.Connector;
 import com.anton.electric.model.ConnectorType;
 import com.anton.electric.model.Input;
 import com.anton.electric.model.Output;
+import com.anton.electric.model.Socket2;
 import com.google.common.collect.Sets;
 
 /**
@@ -32,8 +34,8 @@ public class CrossBus extends AbstractComponent {
 
     private Output outputN;
 
-    public CrossBus(String id, String name, int current, double price) {
-        super(id, name, 4, current, price);
+    public CrossBus(String id, String name, int current, int size, double price) {
+        super(id, name, size, current, price);
 
         this.inputL1 = new Input(this, ConnectorType.L);
         this.inputL2 = new Input(this, ConnectorType.L);
@@ -88,6 +90,30 @@ public class CrossBus extends AbstractComponent {
         return Sets.newHashSet(outputL1, outputL2, outputL3, outputN);
     }
 
+    /**
+     * Соединяет пару (фаза 1, ноль) с двуполюсным компонентом.
+     */
+    public void connectL1(Component component) {
+        connectSocket(outputL1, component);
+    }
 
+    /**
+     * Соединяет пару (фаза 2, ноль) с двуполюсным компонентом.
+     */
+    public void connectL2(Component component) {
+        connectSocket(outputL2, component);
+    }
+
+    /**
+     * Соединяет пару (фаза 2, ноль) с двуполюсным компонентом.
+     */
+    public void connectL3(Component component) {
+        connectSocket(outputL3, component);
+    }
+
+    private void connectSocket(Output outputL, Component component) {
+        Socket2 socketL = new Socket2("socket", "socket", current(), outputL, outputN);
+        socketL.connect(component);
+    }
 
 }

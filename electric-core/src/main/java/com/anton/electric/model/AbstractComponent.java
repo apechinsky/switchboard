@@ -14,14 +14,29 @@ import com.google.common.base.MoreObjects;
  */
 public abstract class AbstractComponent implements Component {
 
+    /**
+     * Уникальный идентификатор
+     */
     private String id;
 
+    /**
+     * Наименование
+     */
     private String name;
 
+    /**
+     * Размер компонента в одинарных DIN модулях.
+     */
     private int size;
 
+    /**
+     * Номинальный ток (A)
+     */
     private int current;
 
+    /**
+     * Цена компонента
+     */
     private double price;
 
     public AbstractComponent(String id, String name, int size, int current, double price) {
@@ -55,6 +70,11 @@ public abstract class AbstractComponent implements Component {
     @Override
     public double price() {
         return price;
+    }
+
+    @Override
+    public String spec() {
+        return String.format("%dA", current);
     }
 
     @Override

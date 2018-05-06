@@ -42,6 +42,11 @@ public interface Component {
     double price();
 
     /**
+     * Лейбл компонента. Наименование + ключевые номиналы.
+     */
+    String spec();
+
+    /**
      * Входы компонента.
      */
     Set<Connector> inputs();
@@ -114,11 +119,11 @@ public interface Component {
      * <p>Компонент совместим, если входы компонента соответствуют выходам текущего компонента.</p>
      *
      * @param component компонент для проверки
-     * @return true если компонент совместим
+     * @return true если компонент совместим8
      */
     default boolean isCompatible(Component component) {
         return outputTypes().stream()
-            .allMatch(type -> this.inputs(type).size() == component.outputs(type).size());
+            .allMatch(type -> component.inputs(type).size() == this.outputs(type).size());
     }
 
     default Set<ConnectorType> outputTypes() {
