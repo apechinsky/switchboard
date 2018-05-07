@@ -77,6 +77,10 @@ switchboard {
     input380.outputL2.connect(inputSwitch.inputL2)
     input380.outputL3.connect(inputSwitch.inputL3)
 
+    generator.outputL1.connect(inputSwitch.inputL1)
+    generator.outputL2.connect(inputSwitch.inputL2)
+    generator.outputL3.connect(inputSwitch.inputL3)
+
     input380.outputN.connect(inputSwitch.inputN)
 
     inputSwitch.connect(uzoFire)
