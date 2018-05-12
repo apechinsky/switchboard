@@ -135,7 +135,7 @@ public class DotSwitchboardRenderer {
             switchboard.getComponents().size(), switchboard.getModules(), switchboard.getPrice());
 
         writer.println("node [shape=box, style=rounded];");
-        writer.println("edge [arrowhead=none];");
+        writer.println("edge [arrowhead=normal];");
     }
 
     private void writeFooter() {

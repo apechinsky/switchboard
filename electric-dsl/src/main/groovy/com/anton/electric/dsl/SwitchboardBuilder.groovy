@@ -7,6 +7,7 @@ import com.anton.electric.model.Socket
 import com.anton.electric.model.Switchboard
 import com.anton.electric.model.impl.Diff
 import com.anton.electric.model.impl.Ground
+import com.anton.electric.model.impl.Input380
 
 /**
  *
@@ -28,12 +29,6 @@ class SwitchboardBuilder {
         return new Switchboard(name, root, groundBus)
     }
 
-//    Switchboard switchboard(Closure closure) {
-//        def builder = new SwitchboardBuilder()
-//        GroovyUtils.configure(closure, builder)
-//        return builder.switchboard()
-//    }
-
     Component root(Component root) {
         this.root = root;
         return root
@@ -51,6 +46,18 @@ class SwitchboardBuilder {
         return outputSocket(diff.outputL, diff.outputN)
     }
 
+    def input400(String id, String name, int current, double price) {
+        Input380 input = new Input380(id, name, current, price)
+        components[id] = input
+
+    }
+
+    @Override
+    Object getProperty(String property) {
+        return components[property]
+    }
+
+    Map components = [:];
 }
 
 

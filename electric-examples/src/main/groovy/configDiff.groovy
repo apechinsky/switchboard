@@ -4,6 +4,10 @@ switchboard {
 
     name = "Diff"
 
+    input400('generator3', 'Генератор трехфазный', 63, 0)
+
+    println generator3
+
     def consumers = new MyConsumers()
 
     Input380 input380 = root(new Input380('input380', 'Вводная линия', 63, 0))
@@ -73,13 +77,17 @@ switchboard {
     def diffAtticSocket1 = new Diff('diffAtticSocket1', 'Дифавтомат', 16, 10, 30)
     def diffAtticSocket2 = new Diff('diffAtticSocket2', 'Дифавтомат', 16, 10, 30)
 
-    input380.outputL1.connect(inputSwitch.inputL1)
-    input380.outputL2.connect(inputSwitch.inputL2)
-    input380.outputL3.connect(inputSwitch.inputL3)
+    input380.outputL1.connect(reverseSwitch.inputL1_1)
+    input380.outputL2.connect(reverseSwitch.inputL2_1)
+    input380.outputL3.connect(reverseSwitch.inputL3_1)
 
-    generator.outputL1.connect(inputSwitch.inputL1)
-    generator.outputL2.connect(inputSwitch.inputL2)
-    generator.outputL3.connect(inputSwitch.inputL3)
+    generator.outputL1.connect(reverseSwitch.inputL1_2)
+    generator.outputL2.connect(reverseSwitch.inputL2_2)
+    generator.outputL3.connect(reverseSwitch.inputL3_2)
+
+    reverseSwitch.outputL1.connect(inputSwitch.inputL1)
+    reverseSwitch.outputL2.connect(inputSwitch.inputL2)
+    reverseSwitch.outputL3.connect(inputSwitch.inputL3)
 
     input380.outputN.connect(inputSwitch.inputN)
 
@@ -189,5 +197,6 @@ switchboard {
     outputSocket(diffAtticLight).connect(consumers.atticLight)
     outputSocket(diffAtticSocket1).connect(consumers.atticSocket1)
     outputSocket(diffAtticSocket2).connect(consumers.atticSocket2)
+
 }
 
