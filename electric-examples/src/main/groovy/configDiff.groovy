@@ -3,7 +3,7 @@ switchboard {
 
     name = "Diff"
 
-    def consumers = new MyConsumers()
+    consumers = new MyConsumers()
 
     Input380('input380', 'Вводная линия', 63, 0)
 
@@ -146,11 +146,15 @@ switchboard {
     crossBus.connectL2(diffWcLight)
     crossBus.connectL2(diffWcSocket)
     crossBus.connectL2(diffWardrobeLight)
-    crossBus.connectL2(diffWardrobeLight)
+    crossBus.connectL2(diffWardrobeSocket)
 
     crossBus.connectL3(diffBoilerLight)
     crossBus.connectL3(diffBoilerSocket)
     crossBus.connectL3(diffBoilerGasBoiler)
+
+    crossBus.connectL3(diffAtticLight)
+    crossBus.connectL3(diffAtticSocket1)
+    crossBus.connectL3(diffAtticSocket2)
 
     outputSocket(diffWeakSwitchboard).connect(consumers.weakSwitchboard)
 

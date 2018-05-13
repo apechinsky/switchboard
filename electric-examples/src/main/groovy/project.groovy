@@ -7,7 +7,7 @@ def consumers = new MyConsumers()
 println "Consumers: ${consumers.count()}"
 
 
-process(  switchboard("config.groovy") )
+//process(  switchboard("config.groovy") )
 
 process( switchboard("configDiff.groovy") )
 

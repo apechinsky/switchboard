@@ -2,6 +2,7 @@ package com.anton.electric.model;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -21,10 +22,13 @@ public class Switchboard {
 
     private Ground ground;
 
-    public Switchboard(String name, Map<String, Component> components, Ground ground) {
+    private Consumers consumers;
+
+    public Switchboard(String name, Map<String, Component> components, Ground ground, Consumers consumers) {
         this.name = name;
         this.components = components;
         this.ground = ground;
+        this.consumers = consumers;
     }
 
     public String getName() {
@@ -39,6 +43,10 @@ public class Switchboard {
 
     public Ground getGround() {
         return ground;
+    }
+
+    public List<Consumer> getConsumers() {
+        return consumers.getConsumers();
     }
 
     public Set<Component> getComponents() {

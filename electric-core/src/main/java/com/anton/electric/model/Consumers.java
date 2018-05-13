@@ -21,4 +21,8 @@ public class Consumers {
     public int count() {
         return consumers.size();
     }
+
+    public List<Consumer> getConsumers() {
+        return consumers;
+    }
 }

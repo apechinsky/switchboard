@@ -19,6 +19,7 @@ import com.anton.electric.model.Switchboard;
 import com.anton.electric.model.Ground;
 import com.anton.electric.model.NullBus;
 import com.anton.electric.render.IndentWriter;
+import com.google.common.collect.Streams;
 
 /**
  * Renders switchboard as directed graph with Dot language (Graphviz).
@@ -60,13 +61,12 @@ public class DotSwitchboardRenderer {
 
     private void renderBody(Switchboard switchboard) {
 
-        List<Level> levels = getComponentsByLevels(switchboard);
-
         writer.indentInc();
 
-        levels.forEach(level -> {
-            Renderer<Object> renderer = getRenderer(level.getComponent());
-            renderer.render(level.getComponent(), writer, config);
+        Streams.concat(switchboard.getComponents().stream(), switchboard.getConsumers().stream())
+            .forEach(component -> {
+                Renderer<Object> renderer = getRenderer(component);
+                renderer.render(component, writer, config);
         });
 
         renderLinks(switchboard);

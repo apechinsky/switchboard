@@ -1,6 +1,7 @@
 package com.anton.electric.dsl
 
 import com.anton.electric.model.Component
+import com.anton.electric.model.Consumers
 import com.anton.electric.model.Output
 import com.anton.electric.model.Socket
 import com.anton.electric.model.Switchboard
@@ -11,13 +12,15 @@ import org.srplib.contract.Assert
 /**
  *
  */
-class SwitchboardBuilder {
+class SwitchboardBuilder extends GroovyObjectSupport {
 
     private String name
 
     private Ground groundBus
 
     private Map components
+
+    private Consumers consumers;
 
     SwitchboardBuilder() {
         this.name = "noname"
@@ -26,11 +29,19 @@ class SwitchboardBuilder {
     }
 
     Switchboard switchboard() {
-        return new Switchboard(name, components, groundBus)
+        return new Switchboard(name, components, groundBus, consumers)
+    }
+
+    String getName() {
+        return name
     }
 
     Ground groundBus() {
         return groundBus
+    }
+
+    Consumers getConsumers() {
+        return consumers
     }
 
     Socket outputSocket(Output outputL, Output outputN) {
@@ -63,8 +74,8 @@ class SwitchboardBuilder {
     @Override
     Object getProperty(String property) {
         def component = components[property]
-        Assert.checkNotNull(component, "Component with id '%s' not found!", property)
-        return component
+//        Assert.checkNotNull(component, "Component with id '%s' not found!", property)
+        return component ?: super.getProperty(property)
     }
 
     /**
