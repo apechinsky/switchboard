@@ -29,48 +29,61 @@ switchboard {
 
     CrossBus("crossBus", "Кросс модуль", 100, 10, 25)
 
-    Diff('diffWeakSwitchboard', 'Дифавтомат', 10, 10, 30)
+    Diff('diffWeakSwitchboard', 'Дифавтомат\\nСлаботочка', 10, 10, 30)
 
-    Diff('diffKitchenLight', 'Дифавтомат', 10, 10, 30)
-    Diff('diffKitchenSocket', 'Дифавтомат', 16, 10, 30)
-    Diff('diffKitchenCooker', 'Дифавтомат', 25, 10, 30)
-    Diff('diffKitchenFridge', 'Дифавтомат', 16, 10, 30)
-    Diff('diffKitchenDishWasher', 'Дифавтомат', 16, 10, 30)
-    Diff('diffKitchenConvector', 'Дифавтомат', 16, 10, 30)
+    Diff('diffKitchenLight', 'Дифавтомат\\nКухня.Свет', 10, 10, 30)
+    Diff('diffKitchenSocket', 'Дифавтомат\\nКухня.Розетки', 16, 10, 30)
+    Diff('diffKitchenCooker', 'Дифавтомат\\nКухня.Плита', 25, 10, 30)
+    Diff('diffKitchenFridge', 'Дифавтомат\\nКухня.Холодильник', 16, 10, 30)
+    Diff('diffKitchenDishWasher', 'Дифавтомат\\nКухня.Посудомойка', 16, 10, 30)
+    Diff('diffKitchenConvector', 'Дифавтомат\\nКухня.Конвектор', 16, 10, 30)
+    group('kitchen', "Кухня",
+        [diffKitchenLight, diffKitchenSocket, diffKitchenCooker, diffKitchenFridge, diffKitchenDishWasher, diffKitchenConvector ])
 
-    Diff('diffBed1Light', 'Дифавтомат', 10, 10, 30)
-    Diff('diffBed1Socket', 'Дифавтомат', 16, 10, 30)
+    group('bed1', 'Спальня1', [
+        Diff('diffBed1Light', 'Дифавтомат\\nСпальня1.Свет', 10, 10, 30),
+        Diff('diffBed1Socket', 'Дифавтомат\\nСпальня1.Розетки', 16, 10, 30)
+    ])
 
-    Diff('diffBed2Light', 'Дифавтомат', 10, 10, 30)
-    Diff('diffBed2Socket', 'Дифавтомат', 16, 10, 30)
+    Diff('diffBed2Light', 'Дифавтомат\\nСпальня2.Свет', 10, 10, 30)
+    Diff('diffBed2Socket', 'Дифавтомат\\nСпальня2.Розетки', 16, 10, 30)
+    group('bed2', "Спальня2", [diffBed2Light, diffBed2Socket])
 
-    Diff('diffBed3Light', 'Дифавтомат', 10, 10, 30)
-    Diff('diffBed3Socket', 'Дифавтомат', 16, 10, 30)
+    Diff('diffBed3Light', 'Дифавтомат\\nСпальня3.Свет', 10, 10, 30)
+    Diff('diffBed3Socket', 'Дифавтомат\\nСпальня3.Розетки', 16, 10, 30)
+    group('bed3', "Спальня3", [diffBed3Light, diffBed3Socket])
 
-    Diff('diffLivingLight', 'Дифавтомат', 10, 10, 30)
-    Diff('diffLivingSocket', 'Дифавтомат', 16, 10, 30)
-    Diff('diffLivingConvector', 'Дифавтомат', 16, 10, 30)
+    Diff('diffLivingLight', 'Дифавтомат\\nГостиная.Свет', 10, 10, 30)
+    Diff('diffLivingSocket', 'Дифавтомат\\nГостиная.Розетки', 16, 10, 30)
+    Diff('diffLivingConvector', 'Дифавтомат\\nГостиная.Конвекторы', 16, 10, 30)
+    group('living', "Гостиная", [diffLivingLight, diffLivingSocket, diffLivingConvector])
 
-    Diff('diffBathLight', 'Дифавтомат', 10, 10, 30)
-    Diff('diffBathSocket', 'Дифавтомат', 16, 10, 30)
-    Diff('diffBathWasher', 'Дифавтомат', 16, 10, 30)
+    Diff('diffBathLight', 'Дифавтомат\\nВанная.Свет', 10, 10, 30)
+    Diff('diffBathSocket', 'Дифавтомат\\nВанная.Розетки', 16, 10, 30)
+    Diff('diffBathWasher', 'Дифавтомат\\nВанная.Стиральная', 16, 10, 30)
+    group('bath', "Ванная", [diffBathLight, diffBathSocket, diffBathWasher])
 
-    Diff('diffWcLight', 'Дифавтомат', 10, 10, 30)
-    Diff('diffWcSocket', 'Дифавтомат', 16, 10, 30)
+    Diff('diffWcLight', 'Дифавтомат\\nСанузел.Свет', 10, 10, 30)
+    Diff('diffWcSocket', 'Дифавтомат\\nСанузел.Розетки', 16, 10, 30)
+    group('wc', "Санузел", [diffWcLight, diffWcSocket])
 
-    Diff('diffWardrobeLight', 'Дифавтомат', 10, 10, 30)
-    Diff('diffWardrobeSocket', 'Дифавтомат', 16, 10, 30)
+    Diff('diffWardrobeLight', 'Дифавтомат\\nГардероб.Свет', 10, 10, 30)
+    Diff('diffWardrobeSocket', 'Дифавтомат\\nГардероб.Розетки', 16, 10, 30)
+    group('wardrobe', "Гардероб.", [diffWardrobeLight, diffWardrobeSocket])
 
-    Diff('diffCorridorLight', 'Дифавтомат', 10, 10, 30)
-    Diff('diffCorridorSocket', 'Дифавтомат', 16, 10, 30)
+    Diff('diffCorridorLight', 'Дифавтомат\\nКоридор.Свет', 10, 10, 30)
+    Diff('diffCorridorSocket', 'Дифавтомат\\nКоридор.Розетки', 16, 10, 30)
+    group('corridor', "оридор", [diffCorridorLight, diffCorridorSocket])
 
-    Diff('diffBoilerLight', 'Дифавтомат', 10, 10, 30)
-    Diff('diffBoilerSocket', 'Дифавтомат', 16, 10, 30)
-    Diff('diffBoilerGasBoiler', 'Дифавтомат', 25, 10, 30)
+    Diff('diffBoilerLight', 'Дифавтомат\\nТопочная.Свет', 10, 10, 30)
+    Diff('diffBoilerSocket', 'Дифавтомат\\nТопочная.Розетки', 16, 10, 30)
+    Diff('diffBoilerGasBoiler', 'Дифавтомат\\nТопочная.Газовый котел', 25, 10, 30)
+    group('boiler', "Топочная", [diffBoilerLight, diffBoilerSocket, diffBoilerGasBoiler])
 
-    Diff('diffAtticLight', 'Дифавтомат', 10, 10, 30)
-    Diff('diffAtticSocket1', 'Дифавтомат', 16, 10, 30)
-    Diff('diffAtticSocket2', 'Дифавтомат', 16, 10, 30)
+    Diff('diffAtticLight', 'Дифавтомат\\nМансарда.Свет', 10, 10, 30)
+    Diff('diffAtticSocket1', 'Дифавтомат\\nМансарда.Розетки1', 16, 10, 30)
+    Diff('diffAtticSocket2', 'Дифавтомат\\nМансарда.Розетки2', 16, 10, 30)
+    group('attic', "Мансарда", [diffAtticLight, diffAtticSocket1, diffAtticSocket2])
 
     input380.outputL1.connect(reverseSwitch.inputL1_1)
     input380.outputL2.connect(reverseSwitch.inputL2_1)

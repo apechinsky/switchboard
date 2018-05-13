@@ -1,13 +1,6 @@
 package com.anton.electric.dsl
 
-import com.anton.electric.model.Component
-import com.anton.electric.model.Consumers
-import com.anton.electric.model.Output
-import com.anton.electric.model.Socket
-import com.anton.electric.model.Switchboard
-import com.anton.electric.model.Diff
-import com.anton.electric.model.Ground
-import org.srplib.contract.Assert
+import com.anton.electric.model.*
 
 /**
  *
@@ -20,16 +13,19 @@ class SwitchboardBuilder extends GroovyObjectSupport {
 
     private Map components
 
-    private Consumers consumers;
+    private Consumers consumers
+
+    private Set<Group> groups
 
     SwitchboardBuilder() {
         this.name = "noname"
         this.components = [:]
         this.groundBus = new Ground()
+        this.groups = []
     }
 
     Switchboard switchboard() {
-        return new Switchboard(name, components, groundBus, consumers)
+        return new Switchboard(name, components, groundBus, consumers, groups)
     }
 
     String getName() {
@@ -50,6 +46,10 @@ class SwitchboardBuilder extends GroovyObjectSupport {
 
     Socket outputSocket(Diff diff) {
         return outputSocket(diff.outputL, diff.outputN)
+    }
+
+    void group(String id, String name, Collection components) {
+        groups.add(new Group(id, name, new HashSet<>(components)))
     }
 
     def register(Component component) {

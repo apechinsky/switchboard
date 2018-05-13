@@ -24,11 +24,14 @@ public class Switchboard {
 
     private Consumers consumers;
 
-    public Switchboard(String name, Map<String, Component> components, Ground ground, Consumers consumers) {
+    private Set<Group> groups;
+
+    public Switchboard(String name, Map<String, Component> components, Ground ground, Consumers consumers, Set<Group> groups) {
         this.name = name;
         this.components = components;
         this.ground = ground;
         this.consumers = consumers;
+        this.groups = groups;
     }
 
     public String getName() {
@@ -54,6 +57,10 @@ public class Switchboard {
         components.add(ground);
         components.addAll(this.components.values());
         return components;
+    }
+
+    public Set<Group> getGroups() {
+        return groups;
     }
 
     public double getPrice() {

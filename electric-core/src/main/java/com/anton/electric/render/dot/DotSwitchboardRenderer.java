@@ -14,6 +14,7 @@ import java.util.TreeSet;
 import org.srplib.contract.Assert;
 
 import com.anton.electric.model.Component;
+import com.anton.electric.model.Group;
 import com.anton.electric.model.Link;
 import com.anton.electric.model.Switchboard;
 import com.anton.electric.model.Ground;
@@ -33,6 +34,7 @@ public class DotSwitchboardRenderer {
     static {
         RENDERERS.put(Ground.class, new GroundRenderer());
         RENDERERS.put(NullBus.class, new NullBusRenderer());
+        RENDERERS.put(Group.class, new GroupRenderer());
         RENDERERS.put(Component.class, new ComponentRenderer());
         RENDERERS.put(Link.class, new LinkRenderer());
     }
@@ -69,6 +71,8 @@ public class DotSwitchboardRenderer {
                 renderer.render(component, writer, config);
         });
 
+        renderGroups(switchboard);
+
         renderLinks(switchboard);
     }
 
@@ -99,6 +103,12 @@ public class DotSwitchboardRenderer {
             .map(Map.Entry::getValue)
             .findFirst()
             .orElseThrow(() -> Assert.failure("No renderer for item '%s'", item));
+    }
+
+    private void renderGroups(Switchboard switchboard) {
+        switchboard.getGroups().stream().forEach(group ->
+            getRenderer(group).render(group, writer, config)
+        );
     }
 
     private void renderLinks(Switchboard switchboard) {
@@ -137,6 +147,8 @@ public class DotSwitchboardRenderer {
 
         writer.println("node [shape=box, style=rounded];");
         writer.println("edge [arrowhead=normal];");
+        writer.println("nodesep=0.5;");
+        writer.println("ranksep=1.0;");
     }
 
     private void writeFooter() {
