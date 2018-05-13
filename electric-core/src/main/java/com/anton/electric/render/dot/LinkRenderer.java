@@ -9,6 +9,8 @@ import com.anton.electric.model.Link;
 import com.anton.electric.render.IndentWriter;
 
 /**
+ * Рендерер соединения коннекторов.
+ *
  * @author Q-APE
  */
 public class LinkRenderer implements Renderer<Link> {

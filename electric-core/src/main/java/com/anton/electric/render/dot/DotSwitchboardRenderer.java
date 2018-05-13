@@ -16,8 +16,8 @@ import org.srplib.contract.Assert;
 import com.anton.electric.model.Component;
 import com.anton.electric.model.Link;
 import com.anton.electric.model.Switchboard;
-import com.anton.electric.model.impl.Ground;
-import com.anton.electric.model.impl.NullBus;
+import com.anton.electric.model.Ground;
+import com.anton.electric.model.NullBus;
 import com.anton.electric.render.IndentWriter;
 
 /**
@@ -77,7 +77,7 @@ public class DotSwitchboardRenderer {
 
         levels.add(new Level(switchboard.getGround(), 0));
 
-        collectComponents(switchboard.getRoot(), levels, 0);
+        switchboard.getInputs().stream().forEach( input -> collectComponents(input, levels, 0) );
 
         List<Level> list = new ArrayList<>(levels);
         list.sort(Comparator.comparing(Level::getDepth));
@@ -103,7 +103,8 @@ public class DotSwitchboardRenderer {
 
     private void renderLinks(Switchboard switchboard) {
         Set<Link> visited = new HashSet<>();
-        renderLinks(switchboard.getRoot(), visited);
+
+        switchboard.getInputs().stream().forEach( input -> renderLinks(input, visited) );
 
         if (config.isRenderGroundLinks()) {
             renderLinks(switchboard.getGround(), visited);

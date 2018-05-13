@@ -1,81 +1,76 @@
-import com.anton.electric.model.impl.*
 
 switchboard {
 
     name = "Diff"
 
-    input400('generator3', 'Генератор трехфазный', 63, 0)
-
-    println generator3
-
     def consumers = new MyConsumers()
 
-    Input380 input380 = root(new Input380('input380', 'Вводная линия', 63, 0))
+    Input380('input380', 'Вводная линия', 63, 0)
 
-    Input380 generator = new Input380('generator', 'Генератор трехфазный', 63, 0)
+    Input380('generator', 'Генератор трехфазный', 63, 0)
 
-    ReverseSwitch reverseSwitch = new ReverseSwitch('reverseSwitch', 'Реверсивный рубильник', 100, 0)
+    ReverseSwitch('reverseSwitch', 'Реверсивный рубильник', 100, 0)
 
-    def inputSwitch = new InputSwitch4('inputSwitch', 'Вводной автомат', 64, 15)
+    InputSwitch4('inputSwitch', 'Вводной автомат', 64, 15)
 
-    def uzoFire = new Uzo4('uzoFire', "УЗО противопожарное", 63, 300, 40)
+    Uzo4('uzoFire', "УЗО противопожарное", 63, 300, 40)
 
-    def vam1 = new VoltAmperMeter('vam1', 'ВАР', 63, 20)
-    def vam2 = new VoltAmperMeter('vam2', 'ВАР', 63, 20)
-    def vam3 = new VoltAmperMeter('vam3', 'ВАР', 63, 20)
+    VoltAmperMeter('vam1', 'ВАР-М01-08', 63, 20)
+    VoltAmperMeter('vam2', 'ВАР-М01-08', 63, 20)
+    VoltAmperMeter('vam3', 'ВАР-М01-08', 63, 20)
 
-    def uzm1 = new Uzm('uzm1', 'УЗМ', 63, 20)
-    def uzm2 = new Uzm('uzm2', 'УЗМ', 63, 20)
-    def uzm3 = new Uzm('uzm3', 'УЗМ', 63, 20)
+    Uzm('uzm1', 'УЗМ-51м', 63, 20)
+    Uzm('uzm2', 'УЗМ-51м', 63, 20)
+    Uzm('uzm3', 'УЗМ-51м', 63, 20)
 
-    def crossBusPersistent = new CrossBus("crossBusPersistent", "Кросс модуль. Неотключаемые", 100, 5, 25)
+    CrossBus("crossBusPersistent", "Кросс модуль. Неотключаемые", 100, 5, 25)
 
-    def manualSwitch = new Switch4("manualSwitch", "Рубильник", 100, 20)
+    Switch4("manualSwitch", "Рубильник", 100, 20)
 
-    def crossBus = new CrossBus("crossBus", "Кросс модуль", 100, 10, 25)
+    CrossBus("crossBus", "Кросс модуль", 100, 10, 25)
 
-    def diffWeakSwitchboard = new Diff('diffWeakSwitchboard', 'Дифавтомат', 10, 10, 30)
+    Diff('diffWeakSwitchboard', 'Дифавтомат', 10, 10, 30)
 
-    def diffKitchenLight = new Diff('diffKitchenLight', 'Дифавтомат', 10, 10, 30)
-    def diffKitchenSocket = new Diff('diffKitchenSocket', 'Дифавтомат', 16, 10, 30)
-    def diffKitchenCooker = new Diff('diffKitchenCooker', 'Дифавтомат', 25, 10, 30)
-    def diffKitchenFridge = new Diff('diffKitchenFridge', 'Дифавтомат', 16, 10, 30)
-    def diffKitchenDishWasher = new Diff('diffKitchenDishWasher', 'Дифавтомат', 16, 10, 30)
-    def diffKitchenConvector = new Diff('diffKitchenConvector', 'Дифавтомат', 16, 10, 30)
+    Diff('diffKitchenLight', 'Дифавтомат', 10, 10, 30)
+    Diff('diffKitchenSocket', 'Дифавтомат', 16, 10, 30)
+    Diff('diffKitchenCooker', 'Дифавтомат', 25, 10, 30)
+    Diff('diffKitchenFridge', 'Дифавтомат', 16, 10, 30)
+    Diff('diffKitchenDishWasher', 'Дифавтомат', 16, 10, 30)
+    Diff('diffKitchenConvector', 'Дифавтомат', 16, 10, 30)
 
-    def diffBed1Light = new Diff('diffBed1Light', 'Дифавтомат', 10, 10, 30)
-    def diffBed1Socket = new Diff('diffBed1Socket', 'Дифавтомат', 16, 10, 30)
+    Diff('diffBed1Light', 'Дифавтомат', 10, 10, 30)
+    Diff('diffBed1Socket', 'Дифавтомат', 16, 10, 30)
 
-    def diffBed2Light = new Diff('diffBed2Light', 'Дифавтомат', 10, 10, 30)
-    def diffBed2Socket = new Diff('diffBed2Socket', 'Дифавтомат', 16, 10, 30)
+    Diff('diffBed2Light', 'Дифавтомат', 10, 10, 30)
+    Diff('diffBed2Socket', 'Дифавтомат', 16, 10, 30)
 
-    def diffBed3Light = new Diff('diffBed3Light', 'Дифавтомат', 10, 10, 30)
-    def diffBed3Socket = new Diff('diffBed3Socket', 'Дифавтомат', 16, 10, 30)
+    Diff('diffBed3Light', 'Дифавтомат', 10, 10, 30)
+    Diff('diffBed3Socket', 'Дифавтомат', 16, 10, 30)
 
-    def diffLivingLight = new Diff('diffLivingLight', 'Дифавтомат', 10, 10, 30)
-    def diffLivingSocket = new Diff('diffLivingSocket', 'Дифавтомат', 16, 10, 30)
-    def diffLivingConvector = new Diff('diffLivingConvector', 'Дифавтомат', 16, 10, 30)
+    Diff('diffLivingLight', 'Дифавтомат', 10, 10, 30)
+    Diff('diffLivingSocket', 'Дифавтомат', 16, 10, 30)
+    Diff('diffLivingConvector', 'Дифавтомат', 16, 10, 30)
 
-    def diffBathLight = new Diff('diffBathLight', 'Дифавтомат', 10, 10, 30)
-    def diffBathSocket = new Diff('diffBathSocket', 'Дифавтомат', 16, 10, 30)
-    def diffBathWasher = new Diff('diffBathWasher', 'Дифавтомат', 16, 10, 30)
+    Diff('diffBathLight', 'Дифавтомат', 10, 10, 30)
+    Diff('diffBathSocket', 'Дифавтомат', 16, 10, 30)
+    Diff('diffBathWasher', 'Дифавтомат', 16, 10, 30)
 
-    def diffWcLight = new Diff('diffWcLight', 'Дифавтомат', 10, 10, 30)
-    def diffWcSocket = new Diff('diffWcSocket', 'Дифавтомат', 16, 10, 30)
+    Diff('diffWcLight', 'Дифавтомат', 10, 10, 30)
+    Diff('diffWcSocket', 'Дифавтомат', 16, 10, 30)
 
-    def diffWardrobeLight = new Diff('diffWardrobeLight', 'Дифавтомат', 10, 10, 30)
-    def diffWardrobeSocket = new Diff('diffWardrobeSocket', 'Дифавтомат', 16, 10, 30)
+    Diff('diffWardrobeLight', 'Дифавтомат', 10, 10, 30)
+    Diff('diffWardrobeSocket', 'Дифавтомат', 16, 10, 30)
 
-    def diffCorridorLight = new Diff('diffCorridorLight', 'Дифавтомат', 10, 10, 30)
-    def diffCorridorSocket = new Diff('diffCorridorSocket', 'Дифавтомат', 16, 10, 30)
+    Diff('diffCorridorLight', 'Дифавтомат', 10, 10, 30)
+    Diff('diffCorridorSocket', 'Дифавтомат', 16, 10, 30)
 
-    def diffBoilerLight = new Diff('diffBoilerLight', 'Дифавтомат', 10, 10, 30)
-    def diffBoilerSocket = new Diff('diffBoilerSocket', 'Дифавтомат', 16, 10, 30)
-    def diffBoilerGasBoiler = new Diff('diffBoilerGasBoiler', 'Дифавтомат', 25, 10, 30)
+    Diff('diffBoilerLight', 'Дифавтомат', 10, 10, 30)
+    Diff('diffBoilerSocket', 'Дифавтомат', 16, 10, 30)
+    Diff('diffBoilerGasBoiler', 'Дифавтомат', 25, 10, 30)
 
-    def diffAtticLight = new Diff('diffAtticLight', 'Дифавтомат', 10, 10, 30)
-    def diffAtticSocket1 = new Diff('diffAtticSocket1', 'Дифавтомат', 16, 10, 30)
-    def diffAtticSocket2 = new Diff('diffAtticSocket2', 'Дифавтомат', 16, 10, 30)
+    Diff('diffAtticLight', 'Дифавтомат', 10, 10, 30)
+    Diff('diffAtticSocket1', 'Дифавтомат', 16, 10, 30)
+    Diff('diffAtticSocket2', 'Дифавтомат', 16, 10, 30)
 
     input380.outputL1.connect(reverseSwitch.inputL1_1)
     input380.outputL2.connect(reverseSwitch.inputL2_1)

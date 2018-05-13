@@ -3,7 +3,7 @@ package com.anton.electric.model;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import org.srplib.contract.Assert;
+import org.srplib.contract.Argument;
 
 /**
  * Компонент электросистемы (узо, автомат, реле и т.п.).
@@ -101,7 +101,9 @@ public interface Component {
      * @see #isCompatible(Component)
      */
     default void connect(Component component) {
-        Assert.checkTrue(isCompatible(component), "Can't autowire component %s to %s. " +
+        Argument.checkNotNull(component, "Can't connect component '%s' to 'null'", this);
+
+        Argument.checkTrue(isCompatible(component), "Can't autowire component %s to %s. " +
             "Component are not connector compatible. ", this, component);
 
         outputs().stream().forEach(thisConnector -> {

@@ -6,10 +6,10 @@ import org.junit.Test;
 
 import com.anton.electric.model.Component;
 import com.anton.electric.model.Connector;
-import com.anton.electric.model.impl.Ground;
-import com.anton.electric.model.impl.Input380;
-import com.anton.electric.model.impl.InputSwitch4;
-import com.anton.electric.model.impl.Uzm;
+import com.anton.electric.model.Ground;
+import com.anton.electric.model.Input380;
+import com.anton.electric.model.InputSwitch4;
+import com.anton.electric.model.Uzm;
 import com.google.common.base.MoreObjects;
 
 /**

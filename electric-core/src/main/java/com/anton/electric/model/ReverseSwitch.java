@@ -1,12 +1,7 @@
-package com.anton.electric.model.impl;
+package com.anton.electric.model;
 
 import java.util.Set;
 
-import com.anton.electric.model.AbstractComponent;
-import com.anton.electric.model.Connector;
-import com.anton.electric.model.ConnectorType;
-import com.anton.electric.model.Input;
-import com.anton.electric.model.Output;
 import com.google.common.collect.Sets;
 
 /**

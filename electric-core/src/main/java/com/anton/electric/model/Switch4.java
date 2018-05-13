@@ -1,20 +1,15 @@
-package com.anton.electric.model.impl;
+package com.anton.electric.model;
 
 import java.util.Set;
 
-import com.anton.electric.model.AbstractComponent;
-import com.anton.electric.model.Connector;
-import com.anton.electric.model.ConnectorType;
-import com.anton.electric.model.Input;
-import com.anton.electric.model.Output;
 import com.google.common.collect.Sets;
 
 /**
- * Вводной автомат
+ * Автомат-выключатель. Четырехполюсный.
  *
  * @author Q-APE
  */
-public class InputSwitch4 extends AbstractComponent {
+public class Switch4 extends AbstractComponent {
 
     private Input inputL1;
 
@@ -32,7 +27,7 @@ public class InputSwitch4 extends AbstractComponent {
 
     private Output outputN;
 
-    public InputSwitch4(String id, String name, int current, double price) {
+    public Switch4(String id, String name, int current, double price) {
         super(id, name, 4, current, price);
 
         this.inputL1 = new Input(this, ConnectorType.L);

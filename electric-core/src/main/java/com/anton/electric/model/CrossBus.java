@@ -1,20 +1,15 @@
-package com.anton.electric.model.impl;
+package com.anton.electric.model;
 
 import java.util.Set;
 
-import com.anton.electric.model.AbstractComponent;
-import com.anton.electric.model.Connector;
-import com.anton.electric.model.ConnectorType;
-import com.anton.electric.model.Input;
-import com.anton.electric.model.Output;
 import com.google.common.collect.Sets;
 
 /**
- * Автомат-выключатель. Четырехполюсный.
+ * Кросс-модуль. 3-фазный.
  *
  * @author Q-APE
  */
-public class Switch4 extends AbstractComponent {
+public class CrossBus extends AbstractComponent {
 
     private Input inputL1;
 
@@ -32,8 +27,8 @@ public class Switch4 extends AbstractComponent {
 
     private Output outputN;
 
-    public Switch4(String id, String name, int current, double price) {
-        super(id, name, 4, current, price);
+    public CrossBus(String id, String name, int current, int size, double price) {
+        super(id, name, size, current, price);
 
         this.inputL1 = new Input(this, ConnectorType.L);
         this.inputL2 = new Input(this, ConnectorType.L);
@@ -88,5 +83,30 @@ public class Switch4 extends AbstractComponent {
         return Sets.newHashSet(outputL1, outputL2, outputL3, outputN);
     }
 
+    /**
+     * Соединяет пару (фаза 1, ноль) с двуполюсным компонентом.
+     */
+    public void connectL1(Component component) {
+        connectSocket(outputL1, component);
+    }
+
+    /**
+     * Соединяет пару (фаза 2, ноль) с двуполюсным компонентом.
+     */
+    public void connectL2(Component component) {
+        connectSocket(outputL2, component);
+    }
+
+    /**
+     * Соединяет пару (фаза 2, ноль) с двуполюсным компонентом.
+     */
+    public void connectL3(Component component) {
+        connectSocket(outputL3, component);
+    }
+
+    private void connectSocket(Output outputL, Component component) {
+        Socket2 socketL = new Socket2("socket", "socket", current(), outputL, outputN);
+        socketL.connect(component);
+    }
 
 }

@@ -1,81 +1,79 @@
-import com.anton.electric.model.impl.*
-
 switchboard {
 
     name = "Simple"
 
     def consumers = new MyConsumers()
 
-    Input380 input380 = root(new Input380('input380', 'Ввод', 63, 0))
+    Input380('input380', 'Ввод', 63, 0)
 
-    def inputSwitch = new InputSwitch4('inputSwitch', 'Вводной автомат', 64, 15)
+    InputSwitch4('inputSwitch', 'Вводной автомат', 64, 15)
 
-    def uzoFire = new Uzo4('zoFire', "УЗО 63A/100ma", 63, 300, 40)
+    Uzo4('uzoFire', "УЗО 63A/100ma", 63, 300, 40)
 
-    def vam1 = new VoltAmperMeter('vam1', 'ВАР', 30, 20)
-    def vam2 = new VoltAmperMeter('vam2', 'ВАР', 30, 20)
-    def vam3 = new VoltAmperMeter('vam3', 'ВАР', 30, 20)
+    VoltAmperMeter('vam1', 'ВАР', 30, 20)
+    VoltAmperMeter('vam2', 'ВАР', 30, 20)
+    VoltAmperMeter('vam3', 'ВАР', 30, 20)
 
-    def uzm1 = new Uzm('uzm1', 'УЗМ', 16, 20)
-    def uzm2 = new Uzm('uzm2', 'УЗМ', 16, 20)
-    def uzm3 = new Uzm('uzm3', 'УЗМ', 16, 20)
+    Uzm('uzm1', 'УЗМ', 16, 20)
+    Uzm('uzm2', 'УЗМ', 16, 20)
+    Uzm('uzm3', 'УЗМ', 16, 20)
 
-    def uzo1 = new Uzo('uzo1', 'УЗО 20A/30мА', 16, 10, 25)
-    def uzo2 = new Uzo('uzo2', 'УЗО 20A/30мА', 16, 10, 25)
-    def uzo3 = new Uzo('uzo3', 'УЗО 20A/30мА', 16, 10, 25)
-    def uzo4 = new Uzo('uzo4', 'УЗО 20A/30мА', 16, 10, 25)
-    def uzo5 = new Uzo('uzo5', 'УЗО 20A/30мА', 16, 10, 25)
-    def uzo6 = new Uzo('uzo6', 'УЗО 20A/30мА', 16, 10, 25)
-    def uzo7 = new Uzo('uzo7', 'УЗО 20A/30мА', 16, 10, 25)
+    Uzo('uzo1', 'УЗО 20A/30мА', 16, 10, 25)
+    Uzo('uzo2', 'УЗО 20A/30мА', 16, 10, 25)
+    Uzo('uzo3', 'УЗО 20A/30мА', 16, 10, 25)
+    Uzo('uzo4', 'УЗО 20A/30мА', 16, 10, 25)
+    Uzo('uzo5', 'УЗО 20A/30мА', 16, 10, 25)
+    Uzo('uzo6', 'УЗО 20A/30мА', 16, 10, 25)
+    Uzo('uzo7', 'УЗО 20A/30мА', 16, 10, 25)
 
-    def nullBus1 = new NullBus("null1", "Нулевая шина 1", 0)
-    def nullBus2 = new NullBus("null2", "Нулевая шина 2", 0)
-    def nullBus3 = new NullBus("null3", "Нулевая шина 3", 0)
-    def nullBus4 = new NullBus("null4", "Нулевая шина 4", 0)
-    def nullBus5 = new NullBus("null5", "Нулевая шина 5", 0)
-    def nullBus6 = new NullBus("null6", "Нулевая шина 6", 0)
-    def nullBus7 = new NullBus("null7", "Нулевая шина 7", 0)
+    NullBus("nullBus1", "Нулевая шина 1", 0)
+    NullBus("nullBus2", "Нулевая шина 2", 0)
+    NullBus("nullBus3", "Нулевая шина 3", 0)
+    NullBus("nullBus4", "Нулевая шина 4", 0)
+    NullBus("nullBus5", "Нулевая шина 5", 0)
+    NullBus("nullBus6", "Нулевая шина 6", 0)
+    NullBus("nullBus7", "Нулевая шина 7", 0)
 
-    def switchKitchenLight = new Switch('switchKitchenLight', 'Автомат', 10, 10)
-    def switchKitchenSocket = new Switch('switchKitchenSocket', 'Автомат', 16, 10)
-    def switchKitchenCooker = new Switch('switchKitchenCooker', 'Автомат', 25, 10)
-    def switchKitchenFridge = new Switch('switchKitchenFridge', 'Автомат', 16, 10)
-    def switchKitchenDishWasher = new Switch('switchKitchenDishWasher', 'Автомат', 16, 10)
-    def switchKitchenConvector = new Switch('switchKitchenConvector', 'Автомат', 16, 10)
+    Switch('switchKitchenLight', 'Автомат', 10, 10)
+    Switch('switchKitchenSocket', 'Автомат', 16, 10)
+    Switch('switchKitchenCooker', 'Автомат', 25, 10)
+    Switch('switchKitchenFridge', 'Автомат', 16, 10)
+    Switch('switchKitchenDishWasher', 'Автомат', 16, 10)
+    Switch('switchKitchenConvector', 'Автомат', 16, 10)
 
-    def switchBed1Light = new Switch('switchBed1Light', 'Автомат', 10, 10)
-    def switchBed1Socket = new Switch('switchBed1Socket', 'Автомат', 16, 10)
+    Switch('switchBed1Light', 'Автомат', 10, 10)
+    Switch('switchBed1Socket', 'Автомат', 16, 10)
 
-    def switchBed2Light = new Switch('switchBed2Light', 'Автомат', 10, 10)
-    def switchBed2Socket = new Switch('switchBed2Socket', 'Автомат', 16, 10)
+    Switch('switchBed2Light', 'Автомат', 10, 10)
+    Switch('switchBed2Socket', 'Автомат', 16, 10)
 
-    def switchBed3Light = new Switch('switchBed3Light', 'Автомат', 10, 10)
-    def switchBed3Socket = new Switch('switchBed3Socket', 'Автомат', 16, 10)
+    Switch('switchBed3Light', 'Автомат', 10, 10)
+    Switch('switchBed3Socket', 'Автомат', 16, 10)
 
-    def switchLivingLight = new Switch('switchLivingLight', 'Автомат', 10, 10)
-    def switchLivingSocket = new Switch('switchLivingSocket', 'Автомат', 16, 10)
-    def switchLivingConvector = new Switch('switchLivingConvector', 'Автомат', 16, 10)
+    Switch('switchLivingLight', 'Автомат', 10, 10)
+    Switch('switchLivingSocket', 'Автомат', 16, 10)
+    Switch('switchLivingConvector', 'Автомат', 16, 10)
 
-    def switchBathLight = new Switch('switchBathLight', 'Автомат', 10, 10)
-    def switchBathSocket = new Switch('switchBathSocket', 'Автомат', 16, 10)
-    def switchBathWasher = new Switch('switchBathWasher', 'Автомат', 16, 10)
+    Switch('switchBathLight', 'Автомат', 10, 10)
+    Switch('switchBathSocket', 'Автомат', 16, 10)
+    Switch('switchBathWasher', 'Автомат', 16, 10)
 
-    def switchWcLight = new Switch('switchWcLight', 'Автомат', 10, 10)
-    def switchWcSocket = new Switch('switchWcSocket', 'Автомат', 16, 10)
+    Switch('switchWcLight', 'Автомат', 10, 10)
+    Switch('switchWcSocket', 'Автомат', 16, 10)
 
-    def switchWardrobeLight = new Switch('switchWardrobeLight', 'Автомат', 10, 10)
-    def switchWardrobeSocket = new Switch('switchWardrobeSocket', 'Автомат', 16, 10)
+    Switch('switchWardrobeLight', 'Автомат', 10, 10)
+    Switch('switchWardrobeSocket', 'Автомат', 16, 10)
 
-    def switchCorridorLight = new Switch('switchCorridorLight', 'Автомат', 10, 10)
-    def switchCorridorSocket = new Switch('switchCorridorSocket', 'Автомат', 16, 10)
+    Switch('switchCorridorLight', 'Автомат', 10, 10)
+    Switch('switchCorridorSocket', 'Автомат', 16, 10)
 
-    def switchBoilerLight = new Switch('switchBoilerLight', 'Автомат', 10, 10)
-    def switchBoilerSocket = new Switch('switchBoilerSocket', 'Автомат', 16, 10)
-    def switchBoilerGasBoiler = new Switch('switchBoilerGasBoiler', 'Автомат', 25, 10)
+    Switch('switchBoilerLight', 'Автомат', 10, 10)
+    Switch('switchBoilerSocket', 'Автомат', 16, 10)
+    Switch('switchBoilerGasBoiler', 'Автомат', 25, 10)
 
-    def switchAtticLight = new Switch('switchAtticLight', 'Автомат', 10, 10)
-    def switchAtticSocket1 = new Switch('switchAtticSocket1', 'Автомат', 16, 10)
-    def switchAtticSocket2 = new Switch('switchAtticSocket2', 'Автомат', 16, 10)
+    Switch('switchAtticLight', 'Автомат', 10, 10)
+    Switch('switchAtticSocket1', 'Автомат', 16, 10)
+    Switch('switchAtticSocket2', 'Автомат', 16, 10)
 
 
 

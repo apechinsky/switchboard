@@ -1,12 +1,8 @@
-package com.anton.electric.model.impl;
+package com.anton.electric.model;
 
 import java.util.Objects;
 
 import org.srplib.contract.Assert;
-
-import com.anton.electric.model.Connector;
-import com.anton.electric.model.Link;
-import com.anton.electric.model.Wire;
 
 /**
  * @author Q-APE

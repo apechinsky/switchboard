@@ -1,22 +1,15 @@
-package com.anton.electric.model.impl;
+package com.anton.electric.model;
 
 import java.util.Set;
 
-import com.anton.electric.model.AbstractComponent;
-import com.anton.electric.model.Component;
-import com.anton.electric.model.Connector;
-import com.anton.electric.model.ConnectorType;
-import com.anton.electric.model.Input;
-import com.anton.electric.model.Output;
-import com.anton.electric.model.Socket2;
 import com.google.common.collect.Sets;
 
 /**
- * Кросс-модуль. 3-фазный.
+ * УЗО. Четырехполюсное. Трехфазное.
  *
  * @author Q-APE
  */
-public class CrossBus extends AbstractComponent {
+public class Uzo4 extends AbstractComponent {
 
     private Input inputL1;
 
@@ -34,8 +27,15 @@ public class CrossBus extends AbstractComponent {
 
     private Output outputN;
 
-    public CrossBus(String id, String name, int current, int size, double price) {
-        super(id, name, size, current, price);
+    /**
+     * Ток утечки (mA)
+     */
+    private int diffCurrent;
+
+    public Uzo4(String id, String name, int current, int diffCurrent, double price) {
+        super(id, name, 4, current, price);
+
+        this.diffCurrent = diffCurrent;
 
         this.inputL1 = new Input(this, ConnectorType.L);
         this.inputL2 = new Input(this, ConnectorType.L);
@@ -46,6 +46,10 @@ public class CrossBus extends AbstractComponent {
         this.outputL2 = new Output(this, ConnectorType.L);
         this.outputL3 = new Output(this, ConnectorType.L);
         this.outputN = new Output(this, ConnectorType.N);
+    }
+
+    public int getDiffCurrent() {
+        return diffCurrent;
     }
 
     public Input getInputL1() {
@@ -81,6 +85,11 @@ public class CrossBus extends AbstractComponent {
     }
 
     @Override
+    public String spec() {
+        return String.format("%dA/%dmA", current(), getDiffCurrent());
+    }
+
+    @Override
     public Set<Connector> inputs() {
         return Sets.newHashSet(inputL1, inputL2, inputL3, inputN);
     }
@@ -88,32 +97,6 @@ public class CrossBus extends AbstractComponent {
     @Override
     public Set<Connector> outputs() {
         return Sets.newHashSet(outputL1, outputL2, outputL3, outputN);
-    }
-
-    /**
-     * Соединяет пару (фаза 1, ноль) с двуполюсным компонентом.
-     */
-    public void connectL1(Component component) {
-        connectSocket(outputL1, component);
-    }
-
-    /**
-     * Соединяет пару (фаза 2, ноль) с двуполюсным компонентом.
-     */
-    public void connectL2(Component component) {
-        connectSocket(outputL2, component);
-    }
-
-    /**
-     * Соединяет пару (фаза 2, ноль) с двуполюсным компонентом.
-     */
-    public void connectL3(Component component) {
-        connectSocket(outputL3, component);
-    }
-
-    private void connectSocket(Output outputL, Component component) {
-        Socket2 socketL = new Socket2("socket", "socket", current(), outputL, outputN);
-        socketL.connect(component);
     }
 
 }

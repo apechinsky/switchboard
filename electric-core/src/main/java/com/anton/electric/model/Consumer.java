@@ -1,7 +1,6 @@
 package com.anton.electric.model;
 
 import java.util.Set;
-import static java.util.Collections.emptySet;
 
 import com.google.common.collect.Sets;
 

@@ -1,20 +1,15 @@
-package com.anton.electric.model.impl;
+package com.anton.electric.model;
 
 import java.util.Set;
 
-import com.anton.electric.model.AbstractComponent;
-import com.anton.electric.model.Connector;
-import com.anton.electric.model.ConnectorType;
-import com.anton.electric.model.Input;
-import com.anton.electric.model.Output;
 import com.google.common.collect.Sets;
 
 /**
- * УЗМ Реле напряжения.
+ * УЗО. Двуполюсное.
  *
  * @author Q-APE
  */
-public class Uzm extends AbstractComponent {
+public class Uzo extends AbstractComponent {
 
     private Input inputL;
 
@@ -24,14 +19,25 @@ public class Uzm extends AbstractComponent {
 
     private Output outputN;
 
-    public Uzm(String id, String name, int current, double price) {
+    /**
+     * Ток утечки (mA)
+     */
+    private int diffCurrent;
+
+    public Uzo(String id, String name, int current, int diffCurrent, double price) {
         super(id, name, 2, current, price);
+
+        this.diffCurrent = diffCurrent;
 
         this.inputL = new Input(this, ConnectorType.L);
         this.inputN = new Input(this, ConnectorType.N);
 
         this.outputL = new Output(this, ConnectorType.L);
         this.outputN = new Output(this, ConnectorType.N);
+    }
+
+    public int getDiffCurrent() {
+        return diffCurrent;
     }
 
     public Input getInputL() {
@@ -48,6 +54,11 @@ public class Uzm extends AbstractComponent {
 
     public Output getOutputN() {
         return outputN;
+    }
+
+    @Override
+    public String spec() {
+        return String.format("%dA/%dmA", current(), getDiffCurrent());
     }
 
     @Override

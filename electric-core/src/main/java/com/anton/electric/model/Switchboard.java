@@ -1,12 +1,11 @@
 package com.anton.electric.model;
 
-import java.util.HashMap;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import com.anton.electric.model.impl.Ground;
 import com.google.common.base.MoreObjects;
 
 /**
@@ -18,13 +17,13 @@ public class Switchboard {
 
     private String name;
 
-    private Component root;
+    private Map<String, Component> components;
 
     private Ground ground;
 
-    public Switchboard(String name, Component root, Ground ground) {
+    public Switchboard(String name, Map<String, Component> components, Ground ground) {
         this.name = name;
-        this.root = root;
+        this.components = components;
         this.ground = ground;
     }
 
@@ -32,8 +31,10 @@ public class Switchboard {
         return name;
     }
 
-    public Component getRoot() {
-        return root;
+    public Collection<Component> getInputs() {
+        return components.values().stream()
+            .filter(Input380.class::isInstance)
+            .collect(Collectors.toList());
     }
 
     public Ground getGround() {
@@ -41,10 +42,10 @@ public class Switchboard {
     }
 
     public Set<Component> getComponents() {
-        Map<String, Component> components = new HashMap<>();
-        components.put(ground.id(), ground);
-        collectLinked(root, components);
-        return new HashSet<>(components.values());
+        Set<Component> components = new HashSet<>();
+        components.add(ground);
+        components.addAll(this.components.values());
+        return components;
     }
 
     public double getPrice() {

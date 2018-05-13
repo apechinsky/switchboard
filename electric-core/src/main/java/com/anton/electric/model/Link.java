@@ -1,7 +1,5 @@
 package com.anton.electric.model;
 
-import com.anton.electric.model.impl.LinkImpl;
-
 /**
  * Связь. Описывает связь двух коннекторов.
  *

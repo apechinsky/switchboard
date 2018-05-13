@@ -1,20 +1,15 @@
-package com.anton.electric.model.impl;
+package com.anton.electric.model;
 
 import java.util.Set;
 
-import com.anton.electric.model.AbstractComponent;
-import com.anton.electric.model.Connector;
-import com.anton.electric.model.ConnectorType;
-import com.anton.electric.model.Input;
-import com.anton.electric.model.Output;
 import com.google.common.collect.Sets;
 
 /**
- * Ввод 380В
+ * Вводной автомат
  *
  * @author Q-APE
  */
-public class Input380 extends AbstractComponent {
+public class InputSwitch4 extends AbstractComponent {
 
     private Input inputL1;
 
@@ -32,8 +27,8 @@ public class Input380 extends AbstractComponent {
 
     private Output outputN;
 
-    public Input380(String id, String name, int current, double price) {
-        super(id, name, 1, current, price);
+    public InputSwitch4(String id, String name, int current, double price) {
+        super(id, name, 4, current, price);
 
         this.inputL1 = new Input(this, ConnectorType.L);
         this.inputL2 = new Input(this, ConnectorType.L);
@@ -87,7 +82,6 @@ public class Input380 extends AbstractComponent {
     public Set<Connector> outputs() {
         return Sets.newHashSet(outputL1, outputL2, outputL3, outputN);
     }
-
 
 
 }
